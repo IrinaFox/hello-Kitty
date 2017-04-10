@@ -6,6 +6,6 @@
         .factory('categoriesFactory', categoriesFactory);
 
     function categoriesFactory () {
-      
+
     }
 }());
