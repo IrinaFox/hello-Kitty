@@ -1,8 +1,5 @@
 <div class="nav">
-    <button class="btn btn-primary btn-lg">All events</button>
-    <button class="btn btn-primary btn-lg">Web UI</button>
-    <button class="btn btn-primary btn-lg">Python</button>
-    <button class="btn btn-primary btn-lg">Database</button>
-    <button class="btn btn-primary btn-lg">Manual Quality</button>
-    <button class="btn btn-default btn-lg">Edit</button>
+    <button class="btn btn-primary btn-lg" ng-click="categories.showAll()">All events</button>
+    <button class="btn btn-primary btn-lg" ng-repeat="category in categories.categories" ng-click="categories.sayHi()">{{category.name}}</button>
+    <button class="btn btn-default btn-lg" ng-click="categories.editCategories()">Edit</button>
 </div>
