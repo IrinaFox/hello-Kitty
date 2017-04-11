@@ -5,7 +5,7 @@
         .module('categories')
         .controller('categoriesController', categoriesController);
 
-    function categoriesController () {
+    function categoriesController ($scope) {
 
     }
 })();
