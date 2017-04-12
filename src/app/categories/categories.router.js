@@ -1,7 +1,7 @@
-export function routerConfig ($stateProvider, $urlRouterProvider) {
+export function categoriesRouter ($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
-    .state('home', {
+    .state('categories', {
       url: '/',
       templateUrl: 'app/categories/templates/categories.html',
       controller: 'CategoriesController',
