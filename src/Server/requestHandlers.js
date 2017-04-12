@@ -1,12 +1,12 @@
 'use strict';
 
-var studentList = require('./studentList'),
+var categories = require('./categories'),
     places = require('./places');
 
 
 function getStudentList () {
-    var studentsString = JSON.stringify(studentList);
-    return studentsString;
+    var categoriesList = JSON.stringify(categories);
+    return categoriesList;
 }
 
 function getPlaces () {

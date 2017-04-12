@@ -14,7 +14,7 @@ function start () {
 
         console.log('METHOD: ' + request.method + ' PATHNAME:' + pathname);
 
-        if (path === 'students') {
+        if (path === 'categories') {
             if (request.method === 'GET') {
                 response.writeHead(200, {"Content-Type": "application/json"});
                 response.write(requestHandlers.getStudentList());

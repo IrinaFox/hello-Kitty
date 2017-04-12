@@ -26,12 +26,17 @@ export class CategoriesController {
 
     this.showAll = function () {
       $log.log('showed All events');
+
+      $http.get('/places')
+        .then(function (response) {
+          $log.log(response);
+        });
     };
 
     this.editCategories = function () {
       $log.log('Ediiiit');
 
-      $http.get('/students')
+      $http.get('/categories')
           .then(function (response) {
               $log.log(response);
         });
