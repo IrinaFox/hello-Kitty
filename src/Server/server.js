@@ -2,8 +2,6 @@
 
 var http = require('http'),
     url = require('url'),
-    staticFile = require('node-static'),
-    file = new staticFile.Server('../Client', {cache: 0}),
     requestHandlers = require('./requestHandlers');
 
 function start () {
@@ -37,8 +35,6 @@ function start () {
           response.end();
         }
       }
-
-      file.serve(request, response);
     }
 
     http.createServer(onRequest).listen(8888);
