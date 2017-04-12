@@ -24,11 +24,18 @@ function start () {
 
       if (path === 'places') {
           if (request.method === 'GET') {
-
               response.writeHead(200, {'Content-Type': 'application/json'});
               response.write(requestHandlers.getPlaces());
               response.end();
             }
+      }
+
+      if (path === 'participants') {
+        if (request.method === 'GET') {
+          response.writeHead(200, {'Content-Type': 'application/json'});
+          response.write(requestHandlers.getParticipants());
+          response.end();
+        }
       }
 
       file.serve(request, response);

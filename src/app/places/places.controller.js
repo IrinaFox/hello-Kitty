@@ -9,7 +9,7 @@ export class PlacesController {
         	    });
         	    this.places = _places;
         };
-        
+
         $log.log(this.places);
     }
-};
+}

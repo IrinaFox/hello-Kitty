@@ -3,11 +3,7 @@ export class CategoriesController {
     'ngInject';
     var _categories = [];
 
-    this.categories = _categories;
-
-    $log.log(this.categories);
-
-    this.editCategories = function () {
+    this.getCategories = function () {
       $log.log('Ediiiit');
 
       $http.get('/categories')
@@ -15,6 +11,7 @@ export class CategoriesController {
           _categories = response.data;
           $log.log(_categories);
         });
+      this.categories = _categories;
     };
 
     this.sayHi = function () {

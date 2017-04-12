@@ -1,17 +1,21 @@
 [
     {
-        "name": "Web UI"
+        "name": "Web UI",
+        "id": "0"
     },
 
     {
-        "name": "Python"
+        "name": "Python",
+        "id": "1"
     },
 
     {
-        "name": "Database"
+        "name": "Database",
+        "id": "2"
     },
 
     {
-        "name": "Manual Quality"
+        "name": "Manual Quality",
+        "id": "3"
     }
 ]
