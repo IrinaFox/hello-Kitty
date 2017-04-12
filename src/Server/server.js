@@ -19,52 +19,19 @@ function start () {
                 response.writeHead(200, {"Content-Type": "application/json"});
                 response.write(requestHandlers.getStudentList());
                 response.end();
-            } else if (request.method === 'PUT') {
-                var postData = '';
-
-                request.addListener("data", function(postDataChunk) {
-                    postData += postDataChunk;
-                });
-
-                request.addListener("end", function() {
-                    requestHandlers.changeStudent(id, postData);
-
-                    response.writeHead(200);
-                    response.write('');
-                    response.end();
-                });
-            } else if (request.method === 'POST') {
-                var postData = '';
-
-                request.addListener("data", function(postDataChunk) {
-                    postData += postDataChunk;
-                });
-
-                request.addListener("end", function() {
-                   var student = requestHandlers.addStudent(postData);
-
-                    response.writeHead(200);
-                    response.write(student);
-                    response.end();
-                });
             }
         }
 
-        if (path === 'countries') {
-            if (request.method === 'GET') {
-                response.writeHead(200, {"Content-Type": "application/json"});
-                response.write(requestHandlers.getCountryList());
-                response.end();
-            }
+      if (path === 'places') {
+          if (request.method === 'GET') {
 
-            else if (request.method === 'DELETE') {
-                requestHandlers.deleteCountry(id);
-                response.writeHead(200, {"Content-Type": "application/json"});
-                response.end();
+              response.writeHead(200, {'Content-Type': 'application/json'});
+              response.write(requestHandlers.getPlaces());
+              response.end();
             }
-        }
+      }
 
-        file.serve(request, response);
+      file.serve(request, response);
     }
 
     http.createServer(onRequest).listen(8888);

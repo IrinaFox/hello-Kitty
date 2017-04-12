@@ -1,4 +1,4 @@
-export function categoriesRouter ($stateProvider, $urlRouterProvider) {
+export function categoriesRouter ($stateProvider) {
   'ngInject';
   $stateProvider
     .state('categories', {
