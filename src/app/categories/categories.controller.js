@@ -2,40 +2,19 @@ export class CategoriesController {
   constructor ($log, $http) {
     'ngInject';
 
-    //var _categories;
-
-    this.categories = [
-      {
-        "name": "Web UI",
-        "id": "0"
-      },
-
-      {
-        "name": "Python",
-        "id": "1"
-      },
-
-      {
-        "name": "Database",
-        "id": "2"
-      },
-
-      {
-        "name": "Manual Quality",
-        "id": "3"
-      }
-    ];
+    var _categories;
 
     this.getCategories = function () {
-      $log.log('Ediiiit');
-
-      $http.get('/categories')
+       $http.get('/categories')
         .then((response) => {
-          //_categories = response.data;
-          $log.log(response.data);
+          _categories = response.data;
+          //$log.log(response.data);
         });
-      //this.categories = _categories;
+      this.categories = _categories;
+      $log.log(this.categories)
     };
+
+    $log.log(this.places);
 
     this.sayHi = function () {
       $log.log('hello');

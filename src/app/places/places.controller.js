@@ -8,6 +8,7 @@ export class PlacesController {
         	    	_places = response.data;
         	    });
         	    this.places = _places;
+          $log.log(this.places)
         };
 
         $log.log(this.places);
