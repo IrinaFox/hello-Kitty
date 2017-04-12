@@ -7,6 +7,4 @@ export function categoriesRouter ($stateProvider, $urlRouterProvider) {
       controller: 'CategoriesController',
       controllerAs: 'categories'
     });
-
-  $urlRouterProvider.otherwise('/');
 }

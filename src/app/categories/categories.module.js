@@ -1,4 +1,3 @@
-import { config } from './categories.config';
 import { categoriesRouter } from './categories.router';
 import { CategoriesController } from './templates/categories.controller';
 import { GithubContributorService } from '../components/githubContributor/githubContributor.service';
@@ -9,7 +8,6 @@ import { MalarkeyDirective } from '../components/malarkey/malarkey.directive';
 var categories = angular.module('categories', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
-  .config(config)
   .config(categoriesRouter)
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
