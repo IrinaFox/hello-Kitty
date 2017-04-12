@@ -1,24 +1,21 @@
 export class CategoriesController {
   constructor ($log, $http) {
     'ngInject';
+    var _categories = [];
 
-    this.categories = [
-      {
-        "name": "Web UI"
-      },
+    this.categories = _categories;
 
-      {
-        "name": "Python"
-      },
+    $log.log(this.categories);
 
-      {
-        "name": "Database"
-      },
+    this.editCategories = function () {
+      $log.log('Ediiiit');
 
-      {
-        "name": "Manual Quality"
-      }
-    ];
+      $http.get('/categories')
+        .then((response) => {
+          _categories = response.data;
+          $log.log(_categories);
+        });
+    };
 
     this.sayHi = function () {
       $log.log('hello');
@@ -30,15 +27,6 @@ export class CategoriesController {
       $http.get('/places')
         .then(function (response) {
           $log.log(response);
-        });
-    };
-
-    this.editCategories = function () {
-      $log.log('Ediiiit');
-
-      $http.get('/categories')
-          .then(function (response) {
-              $log.log(response);
         });
     };
   }
