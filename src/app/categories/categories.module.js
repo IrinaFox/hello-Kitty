@@ -1,5 +1,5 @@
 import { categoriesRouter } from './categories.router';
-import { CategoriesController } from './templates/categories.controller';
+import { CategoriesController } from './categories.controller';
 import { GithubContributorService } from '../components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../components/navbar/navbar.directive';

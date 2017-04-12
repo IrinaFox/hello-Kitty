@@ -1,5 +1,5 @@
 export class CategoriesController {
-  constructor (webDevTec) {
+  constructor ($log, $http) {
     'ngInject';
 
     this.categories = [
@@ -21,15 +21,20 @@ export class CategoriesController {
     ];
 
     this.sayHi = function () {
-      alert('hello');
+      $log.log('hello');
     };
 
     this.showAll = function () {
-      console.log('showed All events');
+      $log.log('showed All events');
     };
 
     this.editCategories = function () {
-      console.log('Ediiiit');
+      $log.log('Ediiiit');
+
+      $http.get('/students')
+          .then(function (response) {
+              $log.log(response);
+        });
     };
   }
 }

@@ -3,7 +3,7 @@ export function categoriesRouter ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('categories', {
       url: '/',
-      templateUrl: 'app/categories/templates/categories.html',
+      templateUrl: 'app/categories/categories.html',
       controller: 'CategoriesController',
       controllerAs: 'categories'
     });
