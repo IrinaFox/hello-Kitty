@@ -2,6 +2,7 @@
 
 var categories = require('./categories'),
     places = require('./places'),
+    feedbacks = require('./feedbacks'),
     participants = require('./participants');
 
 function getStudentList () {
@@ -19,6 +20,12 @@ function getParticipants () {
   return participantsList;
 }
 
+function getFeedbacks () {
+  var feedbacksRoster = JSON.stringify(feedbacks);
+  return feedbacksRoster;
+}
+
 exports.getStudentList = getStudentList;
 exports.getPlaces = getPlaces;
 exports.getParticipants = getParticipants;
+exports.getFeedbacks = getFeedbacks;
