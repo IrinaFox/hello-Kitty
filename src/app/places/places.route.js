@@ -3,7 +3,7 @@ export function routerPlaces ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('places', {
       url: '/places',
-      templateUrl: 'places.html',
+      templateUrl: 'app/places/places.html',
       controller: 'PlacesController',
       controllerAs: 'places'
     });
