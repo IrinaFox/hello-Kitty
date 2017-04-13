@@ -44,7 +44,7 @@ function start () {
       }
     }
   }
-  
+
   http.createServer(onRequest).listen(8888);
   console.log('Server running on port 8888');
 }
