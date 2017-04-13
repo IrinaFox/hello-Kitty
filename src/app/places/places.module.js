@@ -1,5 +1,5 @@
-import {routerPlaces} from '../app/places/places.route';
-import {PlacesController} from '../app/places/places.controller';
+import {routerPlaces} from 'places.route';
+import {PlacesController} from 'places.controller';
 
 angular.module('places', [])
   .config(routerPlaces)
