@@ -1,14 +1,9 @@
-var countries = require('./countries'),
-    students = require('./students');
+var places = require('./places');
 
-function getCountries () {
-	var countryList = JSON.stringify(countries);
-    return countryList;   
-}
 
-function getStudents () {
-	var studentList = JSON.stringify(students);
-	return studentList;
+function getPlaces () {
+	var placesList = JSON.stringify(places);
+	return placesList;
 }
 
 function addStudent (student) {
@@ -42,9 +37,8 @@ function findId (collection, id) {
     return findItem;
 }
 
-exports.addStudent = addStudent;
-exports.getCountries = getCountries;
-exports.getStudents = getStudents;
+exports.getPlaces = getPlaces;
 exports.removeCountry = removeCountry;
 exports.changeData = changeData;
+exports.addStudent = addStudent;
 

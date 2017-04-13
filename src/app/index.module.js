@@ -10,7 +10,7 @@ import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive
 import { places } from '../app/places/places.module';
 
 
-angular.module('server', ['places','ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
+angular.module('server', ['places', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)

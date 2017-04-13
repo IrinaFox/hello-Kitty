@@ -17,7 +17,7 @@
                 <td>{{place.coords}}</td>
                 <td><img ng-src="app/places/img/{{place.photo}}"></td>
                 <td>
-                    <button class="btn btn-default" ng-click="places.editPlaces()">Edit</utton>
+                    <button class="btn btn-default" >Edit</utton>
                 </td>
                 <td>
                     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -25,4 +25,4 @@
             </tr>
     </tbody>
 </table>
-<button class="btn btn-info">add Place</button>
+<button class="btn btn-info" ng-click="places.getPlaces()">add Place</button>

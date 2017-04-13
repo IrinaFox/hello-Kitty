@@ -11,13 +11,7 @@ function start() {
             collection = path[1],
             id = path[path.length-1];
 
-        if (pathname === '/countries') {
-            response.writeHead(200, {'Content-Type': 'application/json'});
-            response.write(requestHandlers.getCountries());
-            response.end();
-        }
-        console.log(path);
-        if (collection === 'students') {
+        if (collection === 'places') {
 			console.log(0);
 			if (request.method === 'POST') {
                 var body = '';
@@ -57,7 +51,7 @@ function start() {
 		    if (request.method === 'GET') {
 			
                 response.writeHead(200, {'Content-Type': 'application/json'});
-                response.write(requestHandlers.getStudents());
+                response.write(requestHandlers.getPlaces());
                 response.end();			
             }
 		}

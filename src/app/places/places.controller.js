@@ -1,9 +1,15 @@
 export class PlacesController {
-	constructor () {
+	constructor ($log, $http) {
 		'ngInject';
-        this.places = _places;
-        this.editPlaces = function () {
-        	console.log(1);
-        }
+		var _places;
+        this.getPlaces = function () {
+        	$http.get('/places')
+        	    .then(function (response) {
+        	    	_places = response.data;
+        	    });
+        	    this.places = _places;
+        };
+        
+        $log.log(this.places);
     }
 };
