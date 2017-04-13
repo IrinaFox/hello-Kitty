@@ -16,7 +16,7 @@ function getPlaces () {
 }
 
 function getParticipants () {
-  var participantsList = JSON.stringify(places);
+  var participantsList = JSON.stringify(participants);
   return participantsList;
 }
 
