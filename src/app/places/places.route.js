@@ -1,12 +1,10 @@
-export function routerPlaces ($stateProvider, $urlRouterProvider) {
+export function routerPlaces ($stateProvider) {
   'ngInject';
   $stateProvider
     .state('places', {
-      url: '/places',
+      url: '/',
       templateUrl: 'app/places/places.html',
       controller: 'PlacesController',
       controllerAs: 'places'
     });
-
-  $urlRouterProvider.otherwise('/');
 }
