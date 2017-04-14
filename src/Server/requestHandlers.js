@@ -5,27 +5,49 @@ var categories = require('./categories'),
     feedbacks = require('./feedbacks'),
     participants = require('./participants');
 
-function getStudentList () {
+//Categories
+function getCategories () {
     var categoriesList = JSON.stringify(categories);
     return categoriesList;
 }
 
+function deleteCategory () {
+}
+
+function addCategory (postData) {
+}
+
+function changeCategory (id, postData) {
+}
+
+
+//Places
 function getPlaces () {
   var placesList = JSON.stringify(places);
   return placesList;
 }
 
+
+//Participants
 function getParticipants () {
   var participantsList = JSON.stringify(participants);
   return participantsList;
 }
 
+
+//Feddbacks
 function getFeedbacks () {
   var feedbacksRoster = JSON.stringify(feedbacks);
   return feedbacksRoster;
 }
 
-exports.getStudentList = getStudentList;
+exports.getCategories = getCategories;
+exports.deleteCategory = deleteCategory;
+exports.addCategory = addCategory;
+exports.changeCategory = changeCategory;
+
 exports.getPlaces = getPlaces;
+
 exports.getParticipants = getParticipants;
+
 exports.getFeedbacks = getFeedbacks;
