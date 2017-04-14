@@ -1,0 +1,38 @@
+'use strict';
+
+var categories = require('./categories'),
+    places = require('./places'),
+    feedbacks = require('./feedbacks'),
+    participants = require('./participants'),
+    events = require('./events');
+
+function getStudentList () {
+    var categoriesList = JSON.stringify(categories);
+    return categoriesList;
+}
+
+function getPlaces () {
+  var placesList = JSON.stringify(places);
+  return placesList;
+}
+
+function getParticipants () {
+  var participantsList = JSON.stringify(places);
+  return participantsList;
+}
+
+function getFeedbacks () {
+  var feedbacksRoster = JSON.stringify(feedbacks);
+  return feedbacksRoster;
+}
+
+function getEvents () {
+  var eventsList = JSON.stringify(events);
+  return eventsList;
+}
+
+exports.getStudentList = getStudentList;
+exports.getPlaces = getPlaces;
+exports.getParticipants = getParticipants;
+exports.getFeedbacks = getFeedbacks;
+exports.getEvents = getEvents;

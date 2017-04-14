@@ -1,0 +1,71 @@
+[   {
+	    "raiting": "111",
+	    "comment": "all right",
+	    "author":"Ksenya",
+	    "category": "Web UI",
+	    "id": "1"
+	},
+	{
+	    "raiting": "100",
+	    "comment": "it was nice",
+	    "author":"Polina",
+	    "category": "Python",
+	    "id": "2"
+	},
+	{
+	    "raiting": "121",
+	    "comment": "i liked it",
+	    "author":"Eugene",
+	    "category": "Database",
+	    "id": "3"
+	},
+	{
+	    "raiting": "211",
+	    "comment": "cool:)",
+	    "author":"Maxim",
+	    "category": "Manual Quality",
+	    "id": "4"
+	},
+	{
+	    "raiting": "711",
+	    "comment": "looks interesting",
+	    "author":"Alex",
+	    "category": "Database",
+	    "id": "5"
+	},
+	{
+	    "raiting": "311",
+	    "comment": "hard discuss",
+	    "author":"Vova",
+	    "category": "Database",
+	    "id": "6"
+	},
+	{
+	    "raiting": "1141",
+	    "comment": "good lecturer",
+	    "author":"Sveta",
+	    "category": "Web UI",
+	    "id": "7"
+	},
+	{
+	   "raiting": "1411",
+	    "comment": "what else?",
+	    "author":"Ira",
+	    "category": "Manual Quality",
+	    "id": "8"
+	},
+	{
+	    "raiting": "1711",
+	    "comment": "Web UI - my love♥",
+	    "author":"Lena",
+	    "category": "Web UI",
+	    "id": "9"
+	},
+	{
+	    "raiting": "11",
+	    "comment": "like a snake",
+	    "author":"Dima",
+	    "category": "Python",
+	    "id": "10"
+	}
+]
