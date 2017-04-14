@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <tbody>
+        <caption>Feedbacks</caption>
+            <tr>
+                <th>Raiting</th>
+                <th>Comment</th>
+                <th>Author</th>
+                <th>edit</th>
+                <th>remove</th>
+            </tr>
+            <tr class="active" ng-repeat="feedback in feedbacks.feedbacks">
+                <td>{{feedback.raiting}}</td>
+                <td>{{feedback.comment}}</td>
+                <td>{{feedback.author}}</td>
+                <td>
+                    <button class="btn btn-default" >Edit </utton>
+                </td>
+                <td>
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </td>
+            </tr>
+    </tbody>
+</table>
+<button class="btn btn-info" ng-click="feedbacks.getFeedbacks()">add feedback</button>
