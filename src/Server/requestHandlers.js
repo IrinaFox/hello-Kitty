@@ -12,12 +12,21 @@ function getCategories () {
 }
 
 function deleteCategory () {
+    delete categories[id];
 }
 
-function addCategory (postData) {
+function addCategory (category) {
+    var categoryJSON = JSON.parse(category);
+    categoryJSON.id = categories.length + 1;
+
+    categories.push(categoryJSON);
+
+    return JSON.stringify(categoryJSON);
 }
 
-function changeCategory (id, postData) {
+function changeCategory (id, category) {
+    var newCategory = JSON.parse(category);
+    categories[id] = newCategory;
 }
 
 
