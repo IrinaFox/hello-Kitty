@@ -1,27 +1,29 @@
 export class CategoriesController {
-  constructor($log, $http) {
-    'ngInject';
+    constructor($log, $http) {
+        'ngInject';
 
-    var _categories;
+        this.http = $http;
+        this.log = $log;
 
-    this.getCategories = function () {
-      $http.get('/categories')
-        .then((response) => {
-          _categories = response.data;
+        this.get();
+    }
+
+    edit () {
+        this.log.log('showed All events');
+          this.categories.push({
+              "name": "New category",
+              "id": "5"
         });
-      this.categories = _categories;
-    };
+    }
 
-    this.sayHi = function () {
-      $log.log('hello');
-    };
+    get () {
+        this.http.get('/categories')
+            .then((response) => {
+                this.categories = response.data;
+            });
+    }
 
-    this.showAll = function () {
-      $log.log('showed All events');
-      _categories.push({
-        "name": "New category",
-        "id": "5"
-      })
-    };
-  }
+    filterEvents (buttonName) {
+        this.log.log(buttonName);
+    }
 }
