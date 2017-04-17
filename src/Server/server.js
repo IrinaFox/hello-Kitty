@@ -12,6 +12,7 @@ function start () {
 
     console.log('METHOD: ' + request.method + ' PATHNAME:' + pathname);
 
+<<<<<<< HEAD
     if (path === 'categories') {
       if (request.method === 'GET') {
         response.writeHead(200, {"Content-Type": "application/json"});
@@ -20,6 +21,58 @@ function start () {
       }
     }
 
+=======
+    //Categories
+    if (path === 'categories') {
+        if (request.method === 'GET') {
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.write(requestHandlers.getCategories());
+            response.end();
+        }
+
+        if (request.method === 'DELETE') {
+            console.log(id);
+            console.log(pathname);
+            requestHandlers.deleteCategory(id);
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.end();
+        }
+
+        if (request.method === 'POST') {
+            var postData = '';
+
+            request.addListener("data", function(postDataChunk) {
+                postData += postDataChunk;
+            });
+
+            request.addListener("end", function() {
+                var category = requestHandlers.addCategory(postData);
+
+                response.writeHead(200);
+                response.write(category);
+                response.end();
+            });
+      }
+
+      if (request.method === 'PUT') {
+          var postData = '';
+
+          request.addListener("data", function(postDataChunk) {
+              postData += postDataChunk;
+          });
+
+          request.addListener("end", function() {
+              requestHandlers.changeCategory(id, postData);
+
+              response.writeHead(200);
+              response.write('');
+              response.end();
+          });
+      }
+    }
+
+    //Places
+>>>>>>> origin/categoriesIra
     if (path === 'places') {
       if (request.method === 'GET') {
         response.writeHead(200, {'Content-Type': 'application/json'});
@@ -28,6 +81,10 @@ function start () {
       }
     }
 
+<<<<<<< HEAD
+=======
+    //Participants
+>>>>>>> origin/categoriesIra
     if (path === 'participants') {
       if (request.method === 'GET') {
         response.writeHead(200, {'Content-Type': 'application/json'});
@@ -36,6 +93,10 @@ function start () {
       }
     }
 
+<<<<<<< HEAD
+=======
+    //Feedbacks
+>>>>>>> origin/categoriesIra
     if (path === 'feedbacks') {
       if (request.method === 'GET') {
         response.writeHead(200, {"Content-Type": "application/json"});
@@ -43,6 +104,7 @@ function start () {
         response.end();
       }
     }
+<<<<<<< HEAD
     
     if (path === 'events') {
       if (request.method === 'GET') {
@@ -51,6 +113,8 @@ function start () {
         response.end();
       }
     }
+=======
+>>>>>>> origin/categoriesIra
   }
 
   http.createServer(onRequest).listen(8888);
