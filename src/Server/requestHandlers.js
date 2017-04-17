@@ -27,7 +27,6 @@ function addCategory (category) {
 }
 
 function changeCategory (id, category) {
-    console.log(id, category);
     var newCategory = JSON.parse(category);
     categories[id] = newCategory;
 }
