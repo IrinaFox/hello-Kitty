@@ -9,8 +9,15 @@ export class CategoriesController {
         this.get();
     }
 
-    save () {
-        this.log.log('Edit works');
+    create () {
+        if (this.scope.creation.newCategory !== "") {
+            var newCategory = {name: this.scope.creation.newCategory};
+
+            this.http.post('/categories', newCategory)
+                .then(() => {
+                    this.get();
+                });
+        }
     }
 
     get () {
@@ -20,18 +27,27 @@ export class CategoriesController {
             });
     }
 
-    filterEvents (buttonName) {
-        this.log.log(buttonName);
+    save () {
+        this.log.log(this.scope.creation.editedCategory);
+
+        if (this.scope.creation.editedCategory !== "") {
+            var newCategory = this.scope.creation.editedCategory;
+            console.log(newCategory);
+        }
+      }
+
+    destroy (_id) {
+        this.log.log(_id);
+        var id = _id;
+        this.log.log(this.categoriesList[id]);
+        this.http.delete('/categories/'+id, this.categoriesList[id])
+            .then(() => {
+                this.get();
+            });
     }
 
-    create () {
-        if (this.scope.creation.newCategory !== "") {
-            var newCategory = {name: this.scope.creation.newCategory};
+    filterEvents (buttonName) {
+      this.log.log(buttonName);
+    }
 
-            this.http.post('/categories', newCategory)
-              .then((response) => {
-                this.categoriesList.push(response.data);
-              });
-          }
-        }
 }

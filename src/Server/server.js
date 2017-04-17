@@ -21,6 +21,8 @@ function start () {
         }
 
         if (request.method === 'DELETE') {
+            console.log(id);
+            console.log(pathname);
             requestHandlers.deleteCategory(id);
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end();

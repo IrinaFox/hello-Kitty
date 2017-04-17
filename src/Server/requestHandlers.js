@@ -11,7 +11,8 @@ function getCategories () {
     return categoriesList;
 }
 
-function deleteCategory () {
+function deleteCategory (id) {
+    console.log(categories);
     delete categories[id];
 }
 
