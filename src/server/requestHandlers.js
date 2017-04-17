@@ -1,27 +1,94 @@
-var feedbacks = require('./feedbacks');
+'use strict';
 
+var categories = require('./categories'),
+    places = require('./places'),
+    feedbacks = require('./feedbacks'),
+<<<<<<< HEAD
+    participants = require('./participants'),
+    events = require('./events');
+
+function getStudentList () {
+=======
+    participants = require('./participants');
+
+//Categories
+function getCategories () {
+>>>>>>> origin/categoriesIra
+    var categoriesList = JSON.stringify(categories);
+    return categoriesList;
+}
+
+<<<<<<< HEAD
+=======
+function deleteCategory (id) {
+    console.log(categories);
+    delete categories[id];
+}
+
+function addCategory (category) {
+    var categoryJSON = JSON.parse(category);
+    categoryJSON.id = categories.length + 1;
+
+    categories.push(categoryJSON);
+
+    return JSON.stringify(categoryJSON);
+}
+
+function changeCategory (id, category) {
+    var newCategory = JSON.parse(category);
+    categories[id] = newCategory;
+}
+
+
+//Places
+>>>>>>> origin/categoriesIra
+function getPlaces () {
+  var placesList = JSON.stringify(places);
+  return placesList;
+}
+
+<<<<<<< HEAD
+function getParticipants () {
+  var participantsList = JSON.stringify(places);
+  return participantsList;
+}
+
+=======
+
+//Participants
+function getParticipants () {
+  var participantsList = JSON.stringify(participants);
+  return participantsList;
+}
+
+
+//Feddbacks
+>>>>>>> origin/categoriesIra
 function getFeedbacks () {
-    var feedbacksRoster = JSON.stringify(feedbacks);
-    return feedbacksRoster;   
+  var feedbacksRoster = JSON.stringify(feedbacks);
+  return feedbacksRoster;
 }
 
-function removeFeedback (id) {
-     delete feedbacks[id];
+<<<<<<< HEAD
+function getEvents () {
+  var eventsList = JSON.stringify(events);
+  return eventsList;
 }
 
-function changeFeedback (id, data) {
-    var newFeedback = JSON.parse(data);
-    feedbacks[id] = newFeedback;
-}
+exports.getStudentList = getStudentList;
+exports.getPlaces = getPlaces;
+exports.getParticipants = getParticipants;
+exports.getFeedbacks = getFeedbacks;
+exports.getEvents = getEvents;
+=======
+exports.getCategories = getCategories;
+exports.deleteCategory = deleteCategory;
+exports.addCategory = addCategory;
+exports.changeCategory = changeCategory;
 
-function addFeedback (student) {
-    var feedbacksJSON = JSON.parse(feedbacks);
-    feedbacksJSON.id = feedbacks.length + 1;
-    feedbacks.push(feedbacksJSON);
-    return JSON.stringify(feedbacksJSON);
-}
+exports.getPlaces = getPlaces;
+
+exports.getParticipants = getParticipants;
 
 exports.getFeedbacks = getFeedbacks;
-exports.removeFeedback = removeFeedback;
-exports.changeFeedback = changeFeedback;
-exports.addFeedback = addFeedback;
+>>>>>>> origin/categoriesIra

@@ -1,62 +1,124 @@
+'use strict';
+
 var http = require('http'),
-    requestHandlers = require('./requestHandlers'),
-    staticFile = require('node-static'),
-    file = new staticFile.Server('../client', {cache: 0}),
-    url = require('url');
+    url = require('url'),
+    requestHandlers = require('./requestHandlers');
 
-function start() {
-    function ifRequest (request, response) {
-        var callerName = url.parse(request.url).pathname,
-            path = callerName.split('/'),
-            collection = path[1],
-            id = path[path.length-1];
+function start () {
+  function onRequest(request, response) {
+    var pathname = url.parse(request.url).pathname,
+      path = pathname.split('/')[1],
+      id = pathname.split('/')[2];
 
-        console.log(collection);
-    	if (collection === 'feedbacks') {
-            if (request.method === 'GET') {
-               response.writeHead(200, {"Content-Type": "application/json"});
-               response.write(requestHandlers.getFeedbacks());
-               response.end();
+    console.log('METHOD: ' + request.method + ' PATHNAME:' + pathname);
 
-        } else if (request.method === 'PUT') {
-            var Info = '';
+<<<<<<< HEAD
+    if (path === 'categories') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.write(requestHandlers.getStudentList());
+        response.end();
+      }
+    }
 
-            request.on("data", function(infa) {
-               Info += infa;
+=======
+    //Categories
+    if (path === 'categories') {
+        if (request.method === 'GET') {
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.write(requestHandlers.getCategories());
+            response.end();
+        }
+
+        if (request.method === 'DELETE') {
+            console.log(id);
+            console.log(pathname);
+            requestHandlers.deleteCategory(id);
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.end();
+        }
+
+        if (request.method === 'POST') {
+            var postData = '';
+
+            request.addListener("data", function(postDataChunk) {
+                postData += postDataChunk;
             });
 
-            request.on("end", function() {
-                requestHandlers.changeFeedback(id, Info);
+            request.addListener("end", function() {
+                var category = requestHandlers.addCategory(postData);
+
                 response.writeHead(200);
-                response.write('');
+                response.write(category);
                 response.end();
             });
-        } else if (request.method === 'POST') {
-            var Info = '';
+      }
 
-                request.on("data", function(infa) {
-                    Info += infa;
-                });
-                request.on("end", function() {
-                   var feedback = requestHandlers.addFeedback(Info);
+      if (request.method === 'PUT') {
+          var postData = '';
 
-                    response.writeHead(200);
-                    response.write(feedback);
-                    response.end();
-                });
-            }
-          
-            else if (request.method === 'DELETE') {
-                requestHandlers.removeFeedback(id);
-                response.writeHead(200, {"Content-Type": "application/json"});
-                response.end();
-            } 
-        } 
-           file.serve(request, response);
-       }
+          request.addListener("data", function(postDataChunk) {
+              postData += postDataChunk;
+          });
 
-       http.createServer(ifRequest).listen(8080);
-       console.log('server is running on 8080');
+          request.addListener("end", function() {
+              requestHandlers.changeCategory(id, postData);
+
+              response.writeHead(200);
+              response.write('');
+              response.end();
+          });
+      }
+    }
+
+    //Places
+>>>>>>> origin/categoriesIra
+    if (path === 'places') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {'Content-Type': 'application/json'});
+        response.write(requestHandlers.getPlaces());
+        response.end();
+      }
+    }
+
+<<<<<<< HEAD
+=======
+    //Participants
+>>>>>>> origin/categoriesIra
+    if (path === 'participants') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {'Content-Type': 'application/json'});
+        response.write(requestHandlers.getParticipants());
+        response.end();
+      }
+    }
+
+<<<<<<< HEAD
+=======
+    //Feedbacks
+>>>>>>> origin/categoriesIra
+    if (path === 'feedbacks') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.write(requestHandlers.getFeedbacks());
+        response.end();
+      }
+    }
+<<<<<<< HEAD
+    
+    if (path === 'events') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.write(requestHandlers.getEvents());
+        response.end();
+      }
+    }
+=======
+>>>>>>> origin/categoriesIra
+  }
+
+  http.createServer(onRequest).listen(8888);
+  console.log('Server running on port 8888');
 }
 
 exports.start = start;
