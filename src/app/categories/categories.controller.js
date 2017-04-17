@@ -29,6 +29,7 @@ export class CategoriesController {
     constructor($log, $http, $scope) {
         'ngInject';
 
+
         this.http = $http;
         this.log = $log;
         this.scope = $scope;
@@ -37,8 +38,8 @@ export class CategoriesController {
     }
 
     create () {
-        if (this.scope.creation.newCategory !== "") {
-            var newCategory = {name: this.scope.creation.newCategory};
+        if (this.scope.newCategory !== "") {
+            var newCategory = {name: this.scope.newCategory};
 
             this.http.post('/categories', newCategory)
                 .then(() => {
@@ -54,12 +55,13 @@ export class CategoriesController {
             });
     }
 
-    save () {
-        this.log.log(this.scope.creation.editedCategory);
-
-        if (this.scope.creation.editedCategory !== "") {
-            var newCategory = this.scope.creation.editedCategory;
-            console.log(newCategory);
+    save (category) {
+        this.log.log(category);
+        if (category.name !== "") {
+            this.http.put('/categories/'+category.id, category)
+                .then(() => {
+                    this.get();
+              })
         }
       }
 
@@ -74,7 +76,11 @@ export class CategoriesController {
     }
 
     filterEvents (buttonName) {
-      this.log.log(buttonName);
+        this.log.log(buttonName);
+    }
+
+    clearInput () {
+        this.scope.newCategory = "";
     }
 
 >>>>>>> origin/categoriesIra

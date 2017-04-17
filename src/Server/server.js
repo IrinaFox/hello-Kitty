@@ -28,8 +28,6 @@ function start () {
         }
 
         if (request.method === 'DELETE') {
-            console.log(id);
-            console.log(pathname);
             requestHandlers.deleteCategory(id);
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end();
@@ -62,7 +60,7 @@ function start () {
               requestHandlers.changeCategory(id, postData);
 
               response.writeHead(200);
-              response.write('');
+              response.write("");
               response.end();
           });
       }
