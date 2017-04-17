@@ -12,23 +12,23 @@ function getCategories () {
 }
 
 function deleteCategory (id) {
-    console.log(categories);
-    var categoryIndex = findId(categories, id);
+    var category= findElement(categories, id),
+        categoryIndex = categories.indexOf(category);
     categories.splice(categoryIndex, 1);
 }
 
 function addCategory (category) {
     var categoryJSON = JSON.parse(category);
-    categoryJSON.id = categories.length + 1;
-
+    categoryJSON.id = newIndex(categories);
     categories.push(categoryJSON);
-
     return JSON.stringify(categoryJSON);
 }
 
 function changeCategory (id, category) {
-    var newCategory = JSON.parse(category);
-    categories[id] = newCategory;
+    var newCategory = JSON.parse(category),
+        changedCategory = findElement(categories, id);
+    console.log(changedCategory);
+    changedCategory.name = newCategory.name;
 }
 
 
@@ -52,15 +52,28 @@ function getFeedbacks () {
   return feedbacksRoster;
 }
 
-function findId (collection, id) {
-  var findItem;
+function findElement (collection, id) {
+    var element;
 
-  collection.forEach(function (item, i) {
-    if(id === item.id) {
-      findItem = i;
-    }
-  });
-  return findItem;
+    collection.forEach(function (item, i) {
+        if(id === item.id) {
+            element = item;
+        }
+    });
+    console.log(element);
+    return element;
+}
+
+function newIndex (collection) {
+    var maxIndex = 0;
+
+    collection.forEach(function (item) {
+        if (item.id > maxIndex) {
+            maxIndex = item.id;
+        }
+    });
+
+    return maxIndex + 1;
 }
 
 exports.getCategories = getCategories;
