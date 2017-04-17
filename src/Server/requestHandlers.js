@@ -13,7 +13,8 @@ function getCategories () {
 
 function deleteCategory (id) {
     console.log(categories);
-    delete categories[id];
+    var categoryIndex = findId(categories, id);
+    categories.splice(categoryIndex, 1);
 }
 
 function addCategory (category) {
@@ -49,6 +50,17 @@ function getParticipants () {
 function getFeedbacks () {
   var feedbacksRoster = JSON.stringify(feedbacks);
   return feedbacksRoster;
+}
+
+function findId (collection, id) {
+  var findItem;
+
+  collection.forEach(function (item, i) {
+    if(id === item.id) {
+      findItem = i;
+    }
+  });
+  return findItem;
 }
 
 exports.getCategories = getCategories;
