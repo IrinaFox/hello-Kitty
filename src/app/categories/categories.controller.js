@@ -25,11 +25,13 @@ export class CategoriesController {
     }
 
     create () {
-        var newCategory = {name: this.scope.creation.newCategory};
+        if (this.scope.creation.newCategory !== "") {
+            var newCategory = {name: this.scope.creation.newCategory};
 
-        this.http.post('/categories', newCategory)
-            .then((response) => {
+            this.http.post('/categories', newCategory)
+              .then((response) => {
                 this.categoriesList.push(response.data);
-            });
-    }
+              });
+          }
+        }
 }
