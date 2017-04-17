@@ -1,34 +1,4 @@
 export class CategoriesController {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  constructor($log, $http) {
-    'ngInject';
-
-    var _categories;
-
-    this.getCategories = function () {
-      $http.get('/categories')
-        .then((response) => {
-          _categories = response.data;
-        });
-      this.categories = _categories;
-    };
-
-    this.sayHi = function () {
-      $log.log('hello');
-    };
-
-    this.showAll = function () {
-      $log.log('showed All events');
-      _categories.push({
-        "name": "New category",
-        "id": "5"
-      })
-    };
-  }
-=======
->>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
     constructor($log, $http, $scope) {
         'ngInject';
 
@@ -85,9 +55,4 @@ export class CategoriesController {
     clearInput () {
         this.scope.newCategory = "";
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/categoriesIra
->>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
 }
