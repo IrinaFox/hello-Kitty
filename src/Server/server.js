@@ -21,8 +21,6 @@ function start () {
         }
 
         if (request.method === 'DELETE') {
-            console.log(id);
-            console.log(pathname);
             requestHandlers.deleteCategory(id);
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end();
@@ -45,6 +43,7 @@ function start () {
       }
 
       if (request.method === 'PUT') {
+          console.log('Put got!!!!!!!');
           var postData = '';
 
           request.addListener("data", function(postDataChunk) {
@@ -52,10 +51,11 @@ function start () {
           });
 
           request.addListener("end", function() {
+              console.log('!!!!!!!!!!!!!!!!!!!' + postData);
               requestHandlers.changeCategory(id, postData);
 
               response.writeHead(200);
-              response.write('');
+              response.write("");
               response.end();
           });
       }
