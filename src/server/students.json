@@ -1,0 +1,63 @@
+[   {
+        "name": "Владимир",
+        "surname": "Тимофеев",
+        "gender": "муж.",
+        "skype": "vovanium",
+        "birthYear": "1999",
+        "birthMonth": "2",
+        "birthDate": "18",
+        "id": "1"
+    },
+    {
+        "name": "Алексей",
+        "surname": "Григорьев",
+        "gender": "муж.",
+        "skype": "izaya256",
+        "birthYear": "1998",
+        "birthMonth": "11",
+        "birthDate": "1",
+        "id": "2"
+    },
+    {
+        "name": "Ирина",
+        "surname": "Рубан",
+        "gender": "жен.",
+        "skype": "princess_rina88",
+        "birthYear": "1999",
+        "birthMonth": "5",
+        "birthDate": "12",
+        "id": "3"
+    },
+    {
+        "name": "Светлана",
+        "surname": "Овчаренко",
+        "gender": "жен.",
+        "skype": "ami-caty",
+        "birthYear": "1999",
+        "birthMonth": "7",
+        "birthDate": "10",
+        "id": "4"
+    },
+    {
+        "name": "Елена",
+        "surname": "Рындина",
+        "gender": "жен.",
+        "skype": "dn100980rev",
+        "birthYear": "1999",
+        "birthMonth": "8",
+        "birthDate": "10",
+        "id": "5"
+    },
+    {
+        "name": "Полина",
+        "surname": "Жиляева",
+        "gender": "жен.",
+        "skype": "polina_volna",
+        "birthYear": "1999",
+        "birthMonth": "4",
+        "birthDate": "22",
+        "id": "6"
+    }
+]
+
+    

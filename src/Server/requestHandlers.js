@@ -79,12 +79,19 @@ function newIndex (collection) {
     return maxIndex + 1;
 }
 
+<<<<<<< HEAD
+=======
+exports.getCategories = getCategories;
+>>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
 function getEvents () {
   var eventsList = JSON.stringify(events);
   return eventsList;
 }
 
+<<<<<<< HEAD
 exports.getCategories = getCategories;
+=======
+>>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
 exports.getPlaces = getPlaces;
 exports.getParticipants = getParticipants;
 exports.getFeedbacks = getFeedbacks;

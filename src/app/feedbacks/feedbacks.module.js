@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import { FeedbacksRouter } from './feedbacks.router';
+import { FeedbacksController } from './feedbacks.controller';
+import { GithubContributorService } from '../components/githubContributor/githubContributor.service';
+=======
+>>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
 import {FeedbacksRouter} from './feedbacks.router';
 import {FeedbacksController} from './feedbacks.controller';
 import { GithubContributorService } from '../components/githubContributor/githubContributor.service';
@@ -11,9 +19,18 @@ var feedbacks = angular.module('feedbacks', ['ngAnimate', 'ngCookies', 'ngTouch'
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .service('githubContributor', GithubContributorService)
+<<<<<<< HEAD
   .service('webDevTec', WebDevTecService)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
+=======
+<<<<<<< HEAD
+=======
+  .service('webDevTec', WebDevTecService)
+  .directive('acmeNavbar', NavbarDirective)
+  .directive('acmeMalarkey', MalarkeyDirective)
+>>>>>>> origin/feedbacksSveta
+>>>>>>> 1faa5f67ad9a714ec88fec3f1dfb3c881e9be5d5
   .config(FeedbacksRouter)
   .controller('FeedbacksController', FeedbacksController);
 
