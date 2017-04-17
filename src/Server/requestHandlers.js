@@ -6,9 +6,6 @@ var categories = require('./categories'),
     participants = require('./participants'),
     events = require('./events');
 
-function getStudentList () {
-    participants = require('./participants');
-
 function getCategories () {
     var categoriesList = JSON.stringify(categories);
     return categoriesList;
@@ -38,11 +35,6 @@ function changeCategory (id, category) {
 function getPlaces () {
   var placesList = JSON.stringify(places);
   return placesList;
-}
-
-function getParticipants () {
-  var participantsList = JSON.stringify(places);
-  return participantsList;
 }
 
 function getParticipants () {
