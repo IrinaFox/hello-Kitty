@@ -12,7 +12,6 @@ function start () {
 
     console.log('METHOD: ' + request.method + ' PATHNAME:' + pathname);
 
-<<<<<<< HEAD
     if (path === 'categories') {
       if (request.method === 'GET') {
         response.writeHead(200, {"Content-Type": "application/json"});
@@ -21,8 +20,6 @@ function start () {
       }
     }
 
-=======
-    //Categories
     if (path === 'categories') {
         if (request.method === 'GET') {
             response.writeHead(200, {"Content-Type": "application/json"});
@@ -71,8 +68,6 @@ function start () {
       }
     }
 
-    //Places
->>>>>>> origin/categoriesIra
     if (path === 'places') {
       if (request.method === 'GET') {
         response.writeHead(200, {'Content-Type': 'application/json'});
@@ -81,10 +76,6 @@ function start () {
       }
     }
 
-<<<<<<< HEAD
-=======
-    //Participants
->>>>>>> origin/categoriesIra
     if (path === 'participants') {
       if (request.method === 'GET') {
         response.writeHead(200, {'Content-Type': 'application/json'});
@@ -93,10 +84,6 @@ function start () {
       }
     }
 
-<<<<<<< HEAD
-=======
-    //Feedbacks
->>>>>>> origin/categoriesIra
     if (path === 'feedbacks') {
       if (request.method === 'GET') {
         response.writeHead(200, {"Content-Type": "application/json"});
@@ -104,7 +91,6 @@ function start () {
         response.end();
       }
     }
-<<<<<<< HEAD
     
     if (path === 'events') {
       if (request.method === 'GET') {
@@ -113,12 +99,9 @@ function start () {
         response.end();
       }
     }
-=======
->>>>>>> origin/categoriesIra
   }
 
   http.createServer(onRequest).listen(8888);
   console.log('Server running on port 8888');
 }
-
 exports.start = start;
