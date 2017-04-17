@@ -7,9 +7,7 @@ import { places } from '../app/places/places.module';
 import { participants } from '../app/participants/participants.module';
 import { feedbacks } from '../app/feedbacks/feedbacks.module';
 
-angular.module('server', ['feedbacks', 'participants', 'places', 'categories', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
-  .constant('malarkey', malarkey)
-  .constant('moment', moment)
+angular.module('server', ['feedbacks', 'participants', 'places', 'categories', 'ui.router', 'ui.bootstrap'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)

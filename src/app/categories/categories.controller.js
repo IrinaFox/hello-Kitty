@@ -28,10 +28,8 @@ export class CategoriesController {
         var newCategory = {name: this.scope.creation.newCategory};
 
         this.http.post('/categories', newCategory)
-          .then((response) => {
-              this.log.log(response.data);
-              this.log.log(this.categoriesList);
-              this.categoriesList.push(response.data);
-          });
+            .then((response) => {
+                this.categoriesList.push(response.data);
+            });
     }
 }
