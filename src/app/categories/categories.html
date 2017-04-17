@@ -11,7 +11,7 @@
             class="btn btn-default btn-lg">Edit</button>
 </div>
 
-<form ng-show="createForm" action="" class="form-horizontal">
+<form ng-show="createForm" action="" class="form-horizontal col-sm-10">
   <div class="form-group">
     <label for="newCategory" class="col-sm-2 control-label">New category</label>
     <div class="col-sm-10">
@@ -28,7 +28,7 @@
   </div>
 </form>
 
-<form ng-show="showEditForm" action="" class="form-horizontal">
+<form ng-show="showEditForm" action="" class="form-horizontal col-sm-10">
   <div class="form-group" ng-repeat="category in categories.categoriesList track by category.id">
     <label for="edit" class="col-sm-2 control-label">{{category.name}}</label>
     <div class="col-sm-10">
@@ -48,6 +48,8 @@
   </div>
 </form>
 
+<div class="nav col-sm-10"">
 <a class="btn btn-info" ui-sref="places">All places</a>
 <a class="btn btn-info" ui-sref="participants">All participants</a>
 <a class="btn btn-info" ui-sref="feedbacks">Feedbacks</a>
+</div>
