@@ -34,10 +34,14 @@ function browserSyncInit(baseDir, browser) {
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
    server.middleware = proxyMiddleware(['/participants', '/feedbacks', '/categories', '/places', '/events'], {target: 'http://localhost:8888', changeOrigin: true});
 =======
    server.middleware = proxyMiddleware(['/participants', '/feedbacks', '/categories', '/places'], {target: 'http://localhost:8888', changeOrigin: true});
 >>>>>>> origin/categoriesIra
+=======
+  server.middleware = proxyMiddleware(['/feedbacks'], {target: 'http://localhost:8080', changeOrigin: true});
+>>>>>>> origin/feedbacksSveta
 
   browserSync.instance = browserSync.init({
     startPath: '/',
