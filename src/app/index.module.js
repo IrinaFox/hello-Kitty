@@ -1,3 +1,5 @@
+/* global malarkey:false, moment:false */
+
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
@@ -28,3 +30,6 @@ angular.module('server', ['feedbacks', 'participants', 'places', 'categories', '
   .config(routerConfig)
   .run(runBlock)
   .service('githubContributor', GithubContributorService);
+
+
+
