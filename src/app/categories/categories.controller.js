@@ -2,7 +2,6 @@ export class CategoriesController {
     constructor($log, $http, $scope) {
         'ngInject';
 
-
         this.http = $http;
         this.log = $log;
         this.scope = $scope;
@@ -11,7 +10,7 @@ export class CategoriesController {
     }
 
     create () {
-        if (this.scope.newCategory !== "") {
+        if (this.scope.newCategory !== '') {
             var newCategory = {name: this.scope.newCategory};
 
             this.http.post('/categories', newCategory)
@@ -29,19 +28,15 @@ export class CategoriesController {
     }
 
     save (category) {
-        this.log.log(category);
-        if (category.name !== "") {
+        if (category.name !== '') {
             this.http.put('/categories/'+category.id, category)
                 .then(() => {
                     this.get();
-              })
+                });
         }
       }
 
-    destroy (_id) {
-        this.log.log(_id);
-        var id = _id;
-        this.log.log(this.categoriesList[id]);
+    destroy (id) {
         this.http.delete('/categories/'+id, this.categoriesList[id])
             .then(() => {
                 this.get();
@@ -53,7 +48,7 @@ export class CategoriesController {
     }
 
     clearInput () {
-        this.scope.newCategory = "";
+        this.scope.newCategory = '';
     }
 
 }

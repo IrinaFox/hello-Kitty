@@ -27,7 +27,6 @@ function addCategory (category) {
 function changeCategory (id, category) {
     var newCategory = JSON.parse(category),
         changedCategory = findElement(categories, id);
-    console.log(changedCategory);
     changedCategory.name = newCategory.name;
 }
 
@@ -60,7 +59,7 @@ function findElement (collection, id) {
             element = item;
         }
     });
-    console.log(element);
+
     return element;
 }
 
