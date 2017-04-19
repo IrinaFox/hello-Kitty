@@ -1,4 +1,4 @@
-export function routerPlaces ($stateProvider) {
+export function eventsRoute ($stateProvider) {
   'ngInject';
   $stateProvider
     .state('events', {

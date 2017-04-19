@@ -81,7 +81,13 @@ function start () {
         response.end();
       }
     }
-    
+    if (path === 'events') {
+      if (request.method === 'GET') {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.write(requestHandlers.getEvents());
+        response.end();
+      }
+    }
   }
 
   http.createServer(onRequest).listen(8888);
