@@ -1,0 +1,44 @@
+<div class="modal-body">
+    <form name = "editPlace" 
+         class = "form-horizontal">
+	    <div class = "form-group">
+		    <label class = "col-sm-2 control-label">Name</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+		            name = "name"
+		            class = "form-control"
+		            ng-model = "place.name"
+		            value= "{{currentPlace.name}}">
+		    </div>
+	    </div>
+	    <div class = "form-group">
+		    <label class = "col-sm-2 control-label">Adress</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+		            name = "adress"
+		            class = "form-control"
+		            ng-model = "place.adress"
+		            value= "{{currentPlace.adress}}">
+		    </div>
+	    </div>
+	    <div class = "form-group">
+		    <label class = "col-sm-2 control-label">coords</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+		            name = "coords"
+		            class = "form-control"
+		            ng-model = "place.coords"
+		            value= "{{currentPlace.coords}}">
+		    </div>
+	    </div>
+	</form>
+</div>
+<div class="modal-footer">
+    <button type = "submit" 
+        class = "btn btn-default"
+        ng-click = "$ctrl.ok(place)">Sign in</button>
+    <button class="btn btn-warning" 
+        type="button" 
+        ng-click="$ctrl.cancel()">Cancel</button>    
+</div>
+

@@ -4,6 +4,7 @@ import { NavbarDirective } from '../components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../components/malarkey/malarkey.directive';
 import {routerPlaces} from './places.route';
 import {PlacesController} from './places.controller';
+import {ModalInstanceCtrl} from './places.modalInstance.controller';
 
 var places = angular.module('places', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
   .constant('malarkey', malarkey)
@@ -13,7 +14,8 @@ var places = angular.module('places', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngS
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
   .config(routerPlaces)
-  .controller('PlacesController', PlacesController);
+  .controller('PlacesController', PlacesController)
+  .controller('ModalInstanceCtrl', ModalInstanceCtrl);
 
 export default places;
 
