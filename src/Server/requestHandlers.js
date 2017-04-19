@@ -3,9 +3,9 @@
 var categories = require('./categories'),
     places = require('./places'),
     feedbacks = require('./feedbacks'),
-    participants = require('./participants');
+    participants = require('./participants'),
+    events = require('./events');
 
-//Categories
 function getCategories () {
     var categoriesList = JSON.stringify(categories);
     return categoriesList;
@@ -31,21 +31,16 @@ function changeCategory (id, category) {
 }
 
 
-//Places
 function getPlaces () {
   var placesList = JSON.stringify(places);
   return placesList;
 }
 
-
-//Participants
 function getParticipants () {
   var participantsList = JSON.stringify(participants);
   return participantsList;
 }
 
-
-//Feddbacks
 function getFeedbacks () {
   var feedbacksRoster = JSON.stringify(feedbacks);
   return feedbacksRoster;
@@ -75,13 +70,21 @@ function newIndex (collection) {
     return maxIndex + 1;
 }
 
+function getEvents () {
+  var eventsList = JSON.stringify(events);
+  return eventsList;
+}
+
 exports.getCategories = getCategories;
 exports.deleteCategory = deleteCategory;
 exports.addCategory = addCategory;
 exports.changeCategory = changeCategory;
+
+exports.getEvents = getEvents;
 
 exports.getPlaces = getPlaces;
 
 exports.getParticipants = getParticipants;
 
 exports.getFeedbacks = getFeedbacks;
+

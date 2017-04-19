@@ -5,6 +5,7 @@ var http = require('http'),
     requestHandlers = require('./requestHandlers');
 
 function start () {
+
     function onRequest(request, response) {
         var pathname = url.parse(request.url).pathname,
             path = pathname.split('/')[1],
@@ -85,10 +86,18 @@ function start () {
                 response.end();
             }
         }
+
+        //Events
+        if (path === 'events') {
+            if (request.method === 'GET') {
+                response.writeHead(200, {"Content-Type": "application/json"});
+                response.write(requestHandlers.getEvents());
+                response.end();
+            }
+        }
     }
 
     http.createServer(onRequest).listen(8888);
     console.log('Server running on port 8888');
 }
-
 exports.start = start;

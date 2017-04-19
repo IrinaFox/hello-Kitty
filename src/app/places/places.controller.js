@@ -1,6 +1,7 @@
 export class PlacesController {
 	constructor ($log, $http) {
 		'ngInject';
+
         this.getPlaces = function () {
         	$http.get('/places')
         	    .then((response) => {
