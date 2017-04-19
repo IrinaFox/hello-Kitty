@@ -96,6 +96,7 @@ exports.changeCategory = changeCategory;
 exports.getPlaces = getPlaces;
 exports.removePlace = removePlace;
 exports.addPlace = addPlace;
+exports.changePlace = changePlace;
 
 exports.getParticipants = getParticipants;
 
