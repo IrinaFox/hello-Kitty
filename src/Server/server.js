@@ -13,14 +13,6 @@ function start () {
     console.log('METHOD: ' + request.method + ' PATHNAME:' + pathname);
 
     if (path === 'categories') {
-      if (request.method === 'GET') {
-        response.writeHead(200, {"Content-Type": "application/json"});
-        response.write(requestHandlers.getStudentList());
-        response.end();
-      }
-    }
-
-    if (path === 'categories') {
         if (request.method === 'GET') {
             response.writeHead(200, {"Content-Type": "application/json"});
             response.write(requestHandlers.getCategories());
@@ -90,13 +82,6 @@ function start () {
       }
     }
     
-    if (path === 'events') {
-      if (request.method === 'GET') {
-        response.writeHead(200, {"Content-Type": "application/json"});
-        response.write(requestHandlers.getEvents());
-        response.end();
-      }
-    }
   }
 
   http.createServer(onRequest).listen(8888);

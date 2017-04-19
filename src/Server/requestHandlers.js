@@ -71,16 +71,10 @@ function newIndex (collection) {
     return maxIndex + 1;
 }
 
-function getEvents () {
-  var eventsList = JSON.stringify(events);
-  return eventsList;
-}
-
 exports.getCategories = getCategories;
 exports.getPlaces = getPlaces;
 exports.getParticipants = getParticipants;
 exports.getFeedbacks = getFeedbacks;
-exports.getEvents = getEvents;
 exports.deleteCategory = deleteCategory;
 exports.addCategory = addCategory;
 exports.changeCategory = changeCategory;

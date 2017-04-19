@@ -1,4 +1,4 @@
 export function runBlock ($log) {
   'ngInject';
-  $log.debug('Vasya');
+  $log.debug('it is working');
 }

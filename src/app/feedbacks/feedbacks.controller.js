@@ -1,13 +1,14 @@
 export class FeedbacksController {
 	constructor ($log, $http) {
 		'ngInject';
-        this.$http =  $http;
-    this.get();
+        this.http =  $http;
+    this.getFeedbacks();
 	}	
+    
     getFeedbacks () {
-        this.$http.get('/feedbacks')
-    	    .then((response) =>{
-    	    	this.feedback = response.data;       
+        this.http.get('/feedbacks')
+    	    .then((response) => {
+    	    	this.feedbacks = response.data;       
     	});
     }; 
 }
