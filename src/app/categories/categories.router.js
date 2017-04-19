@@ -6,5 +6,5 @@ export function categoriesRouter ($stateProvider) {
         templateUrl: 'app/categories/categories.html',
         controller: 'CategoriesController',
         controllerAs: 'categories'
-    });
+    })
 }
