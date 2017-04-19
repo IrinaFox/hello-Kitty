@@ -1,11 +1,13 @@
 export class CategoriesController {
-    constructor($log, $http, $scope) {
+    constructor($log, $http, $scope, $uibModal) {
         'ngInject';
 
         this.http = $http;
         this.log = $log;
         this.scope = $scope;
+        this.modal = $uibModal;
 
+        this.scope.newCategory = '';
         this.get();
     }
 
@@ -15,8 +17,11 @@ export class CategoriesController {
 
             this.http.post('/categories', newCategory)
                 .then(() => {
+                    this.closeModal();
                     this.get();
                 });
+
+          this.scope.newCategory = '';
         }
     }
 
@@ -43,12 +48,28 @@ export class CategoriesController {
             });
     }
 
+    openCreationForm () {
+        this.modal.open({
+            templateUrl: 'app/categories/categories.createForm.html',
+            controller: 'CategoriesController',
+            controllerAs: 'categories'
+        });
+    }
+
+    openEditionForm () {
+        this.get();
+        this.modal.open({
+            templateUrl: 'app/categories/categories.editForm.html',
+            controller: 'CategoriesController',
+            controllerAs: 'categories'
+        });
+    }
+
+    closeModal () {
+        this.scope.$close(this.get());
+    };
+
     filterEvents (buttonName) {
         this.log.log(buttonName);
     }
-
-    clearInput () {
-        this.scope.newCategory = '';
-    }
-
 }
