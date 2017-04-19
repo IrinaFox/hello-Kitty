@@ -34,7 +34,7 @@ export class PlacesController {
             size: size
         });
 
-        modalInstance.result.then(function (place) {   
+        modalInstance.result.then((place) => {   
 
             this.http.post('/places', place)
             .then(() => {
@@ -44,25 +44,27 @@ export class PlacesController {
     }
 
     openEditForm (size, place) {
-        var currentPlace = place;
-        var modalInstance = this.modal.open({
+        var currentPlace = place,
+            modalInstance = this.modal.open({
             templateUrl: 'app/places/editForm.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             size: size
         });
 
-        modalInstance.result.then(function (place) {
-            currentPlace.name = place.name;
-            currentPlace.adress = place.adress;
-            currentPlace.coords = place.coords;
+        modalInstance.result.then((place) => {
             var id = currentPlace.id;
+            
+            for (var key in currentPlace) {
+                if (place[key]) {
+                    currentPlace[key] = place[key];
+                }
+            }
             
             this.http.put('/places/' + id, currentPlace)
             .then(() => {
                 this.get();
             });
-
-        })
+        });
     };
 }
