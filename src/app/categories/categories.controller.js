@@ -8,7 +8,7 @@ export class CategoriesController {
         this.modal = $uibModal;
 
         this.scope.newCategory = '';
-        this.get();
+        this.loadCategoriesList();
     }
 
     create () {
@@ -18,14 +18,13 @@ export class CategoriesController {
             this.http.post('/categories', newCategory)
                 .then(() => {
                     this.closeModal();
-                    this.get();
                 });
 
           this.scope.newCategory = '';
         }
     }
 
-    get () {
+    loadCategoriesList () {
         this.http.get('/categories')
             .then((response) => {
                 this.categoriesList = response.data;
@@ -36,15 +35,15 @@ export class CategoriesController {
         if (category.name !== '') {
             this.http.put('/categories/'+category.id, category)
                 .then(() => {
-                    this.get();
+                    this.loadCategoriesList();
                 });
         }
       }
 
     destroy (id) {
-        this.http.delete('/categories/'+id, this.categoriesList[id])
+        this.http.delete('/categories/'+id)
             .then(() => {
-                this.get();
+                this.loadCategoriesList();
             });
     }
 
@@ -57,7 +56,7 @@ export class CategoriesController {
     }
 
     openEditionForm () {
-        this.get();
+        this.loadCategoriesList();
         this.modal.open({
             templateUrl: 'app/categories/categories.editForm.html',
             controller: 'CategoriesController',
@@ -66,7 +65,7 @@ export class CategoriesController {
     }
 
     closeModal () {
-        this.scope.$close(this.get());
+        this.scope.$close();
     };
 
     filterEvents (buttonName) {
