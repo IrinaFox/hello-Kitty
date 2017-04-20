@@ -1,0 +1,28 @@
+<table class="table table-hover">
+    <tbody>
+        <caption>All places</caption>
+            <tr>
+                <th>№</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>coords</th>
+                <th>photo</th>
+                <th>edit</th>
+                <th>remove</th>
+            </tr>
+            <tr class="active" ng-repeat="place in places.places">
+                <td>{{place.id}}</td>
+                <td>{{place.name}}</td>
+                <td>{{place.adress}}</td>
+                <td>{{place.coords}}</td>
+                <td><img ng-src="app/places/img/{{place.photo}}"></td>
+                <td>
+                    <button class="btn btn-default" >Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="close"  aria-label="Close"><span  ng-click="place.foo()" aria-hidden="true">&times;</span></button>
+                </td>
+            </tr>
+    </tbody>
+</table>
+<button title="two clicks" class="btn btn-info" ng-click="places.getPlaces()">show Places</button>
