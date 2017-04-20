@@ -8,7 +8,7 @@ export class PlacesController {
         this.modal = $uibModal;
         this.currentPlace = {};
         this.ctrl = this;
-                
+
         this.get();
     }
 
@@ -34,7 +34,7 @@ export class PlacesController {
             size: size
         });
 
-        modalInstance.result.then((place) => {   
+        modalInstance.result.then((place) => {
 
             this.http.post('/places', place)
             .then(() => {
@@ -54,13 +54,13 @@ export class PlacesController {
 
         modalInstance.result.then((place) => {
             var id = currentPlace.id;
-            
+
             for (var key in currentPlace) {
                 if (place[key]) {
                     currentPlace[key] = place[key];
                 }
             }
-            
+
             this.http.put('/places/' + id, currentPlace)
             .then(() => {
                 this.get();

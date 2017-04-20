@@ -3,13 +3,13 @@ export class FeedbacksController {
 		'ngInject';
         this.http =  $http;
     this.getFeedbacks();
-	}	
-    
+	}
+
     getFeedbacks () {
         this.http.get('/feedbacks')
     	    .then((response) => {
-    	    	this.feedbacks = response.data;       
+    	    	this.feedbacks = response.data;
     	});
-    }; 
+    };
 }
 

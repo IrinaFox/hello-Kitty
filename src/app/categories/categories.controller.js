@@ -1,58 +1,48 @@
 export class CategoriesController {
-    constructor($log, $http, $scope) {
+    constructor($log, $http, $scope, $uibModal) {
         'ngInject';
-
 
         this.http = $http;
         this.log = $log;
         this.scope = $scope;
+        this.modal = $uibModal;
 
-        this.get();
+        this.scope.newCategory = '';
+        this.loadCategoriesList();
     }
 
-    create () {
-        if (this.scope.newCategory !== "") {
-            var newCategory = {name: this.scope.newCategory};
-
-            this.http.post('/categories', newCategory)
-                .then(() => {
-                    this.get();
-                });
-        }
-    }
-
-    get () {
+    loadCategoriesList () {
         this.http.get('/categories')
             .then((response) => {
                 this.categoriesList = response.data;
             });
     }
 
-    save (category) {
-        this.log.log(category);
-        if (category.name !== "") {
-            this.http.put('/categories/'+category.id, category)
-                .then(() => {
-                    this.get();
-              })
-        }
-      }
+    openCreationForm () {
+        let modalInstance = this.modal.open({
+            templateUrl: 'app/categories/categories.createForm.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl'
+        });
 
-    destroy (_id) {
-        this.log.log(_id);
-        var id = _id;
-        this.log.log(this.categoriesList[id]);
-        this.http.delete('/categories/'+id, this.categoriesList[id])
-            .then(() => {
-                this.get();
-            });
+        modalInstance.result.then(() => {
+            this.loadCategoriesList();
+        })
+    }
+
+    openEditionForm () {
+        let modalInstance = this.modal.open({
+            templateUrl: 'app/categories/categories.editForm.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl'
+        });
+
+        modalInstance.result.then(() => {
+            this.loadCategoriesList();
+        })
     }
 
     filterEvents (buttonName) {
         this.log.log(buttonName);
-    }
-
-    clearInput () {
-        this.scope.newCategory = "";
     }
 }
