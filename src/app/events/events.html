@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Place</th>
+      <th>Participants</th>
+    </tr>
+    <tr class="active" ng-repeat="event in events.events">
+      <td>{{event.name}}</td>
+      <td>{{event.description}}</td>
+      <td>{{event.place}}</td>
+      <td>{{event.participants}}</td>
+    </tr>
+  </tbody>
+</table>

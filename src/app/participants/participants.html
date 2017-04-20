@@ -11,13 +11,13 @@
             <tr ng-repeat="participant in participants.participantsList">
                 <td>{{participant.name}}</td>
                 <td>{{participant.lastname}}</td>
-                <td><button class="btn-info" ng-click="participants.editPerson(participant)">Edit</button></td>  
+                <td><button class="btn-info" ng-click="participants.editPerson(participant)">Edit</button></td>
                 <td><button class="btn-danger" ng-click="participants.removePerson(participant.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
 
-<button class="btn btn-info" ng-click="participants.newPerson()">Add person</button> 
+<button class="btn btn-info" ng-click="participants.newPerson()">Add person</button>
 </div>
 
 

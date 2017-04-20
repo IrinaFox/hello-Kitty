@@ -2,11 +2,11 @@ export class ParticipantsController {
   constructor($log, $http, $scope, $uibModal) {
     'ngInject';
 
-    this.http = $http; 
-    this.log = $log; 
+    this.http = $http;
+    this.log = $log;
     this.scope = $scope;
     this.modal = $uibModal;
-    $scope.currentParticipant = {}; 
+    $scope.currentParticipant = {};
     this.MainCtrl=this;
 
     this.getParticipants();
@@ -37,8 +37,8 @@ export class ParticipantsController {
         controller: 'ParticipantsController',
         controllerAs: 'participants',
         size: 'md'
-      });    
-  }  
+      });
+  }
 
 
 
@@ -50,7 +50,7 @@ export class ParticipantsController {
             size: 'lg'
         });
 
-        modalWindow.result.then((participant) => {   
+        modalWindow.result.then((participant) => {
 
             this.http.post('/participants', participant)
             .then(() => {
