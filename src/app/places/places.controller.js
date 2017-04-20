@@ -8,21 +8,21 @@ export class PlacesController {
         this.modal = $uibModal;
         this.currentPlace = {};
         this.ctrl = this;
-
-        this.get();
+                
+        this.getPlacesList();
     }
 
-    get () {
+    getPlacesList () {
         this.http.get('/places')
             .then((response) => {
                 this.places = response.data;
             });
     }
 
-    remove (id) {
+    removePlace (id) {
         this.http.delete('/places/' + id)
             .then(() => {
-                this.get();
+                this.getPlacesList();
             });
     }
 
@@ -31,39 +31,35 @@ export class PlacesController {
             templateUrl: 'app/places/addForm.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
-            size: size
+            size: size,
+            resolve: {currentPlace: () => this.currentPlace}
         });
 
-        modalInstance.result.then((place) => {
+        modalInstance.result.then((place) => {   
 
             this.http.post('/places', place)
             .then(() => {
-                this.get();
+                this.getPlacesList();
             });
-        })
+        });
     }
 
     openEditForm (size, place) {
-        var currentPlace = place,
-            modalInstance = this.modal.open({
-            templateUrl: 'app/places/editForm.html',
+        var modalInstance = this.modal.open({
+            templateUrl: 'app/places/addForm.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
-            size: size
+            size: size,
+            resolve: {currentPlace: () => place}
         });
 
-        modalInstance.result.then((place) => {
+        modalInstance.result.then((currentPlace) => {
+            console.log(currentPlace);
             var id = currentPlace.id;
-
-            for (var key in currentPlace) {
-                if (place[key]) {
-                    currentPlace[key] = place[key];
-                }
-            }
-
+            
             this.http.put('/places/' + id, currentPlace)
             .then(() => {
-                this.get();
+                this.getPlacesList();
             });
         });
     };

@@ -11,7 +11,7 @@
                 <th>edit</th>
                 <th>remove</th>
             </tr>
-            <tr class = "active"
+            <tr class = "active" 
                 ng-repeat = "place in places.places track by place.id">
                 <td>{{$index + 1}}</td>
                 <td>{{place.name}}</td>
@@ -23,8 +23,8 @@
                         ng-click="places.openEditForm('sm', place)">Edit</button>
                 </td>
                 <td>
-                    <button type="button"
-                        ng-click="places.remove(place.id)"
+                    <button type="button" 
+                        ng-click="places.remove(place.id)" 
                         class="btn btn-sm btn-danger">
                             <i class="glyphicon glyphicon-remove-circle"></i>
                     </button>
@@ -33,5 +33,5 @@
     </tbody>
 </table>
 </div>
-<button class = "btn btn-info"
+<button class = "btn btn-info" 
     ng-click="places.openAddForm('sm')">Add Place</button>

@@ -50,16 +50,16 @@ function addPlace (place) {
   placeId = String(idCounter);
   place.id = placeId;
   places.push(place);
-
+  
   return place;
 }
 
 function changePlace (id, data) {
-  var item = findId(places, id),
-    placeData = JSON.parse(data);
-
-  places.splice(item, 1, placeData);
-  return JSON.stringify(placeData);
+    var item = findId(places, id),
+        placeData = JSON.parse(data);
+    
+    places.splice(item, 1, placeData);
+    return JSON.stringify(placeData);
 }
 
 //Participants
@@ -113,7 +113,6 @@ exports.getPlaces = getPlaces;
 exports.removePlace = removePlace;
 exports.addPlace = addPlace;
 exports.changePlace = changePlace;
-exports.getPlaces = getPlaces;
 
 exports.getParticipants = getParticipants;
 
