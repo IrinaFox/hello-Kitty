@@ -3,7 +3,7 @@ import { CategoriesController } from './categories.controller';
 import { GithubContributorService } from '../components/githubContributor/githubContributor.service';
 import { ModalInstanceCtrl } from './categories.modalInstance.controller';
 
-var categories = angular.module('categories', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
+var categories = angular.module('categories', ['ui.router', 'ui.bootstrap'])
     .config(categoriesRouter)
     .service('githubContributor', GithubContributorService)
     .controller('ModalInstanceCtrl', ModalInstanceCtrl)
