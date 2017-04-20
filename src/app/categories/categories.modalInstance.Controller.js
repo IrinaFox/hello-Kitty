@@ -20,7 +20,7 @@ export class ModalInstanceCtrl {
 
     create () {
       if (this.scope.newCategory !== '') {
-        var newCategory = {name: this.scope.newCategory};
+        let newCategory = {name: this.scope.newCategory};
 
         this.http.post('/categories', newCategory)
           .then(() => {

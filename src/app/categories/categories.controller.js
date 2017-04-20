@@ -19,7 +19,7 @@ export class CategoriesController {
     }
 
     openCreationForm () {
-        var modalInstance = this.modal.open({
+        let modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.createForm.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl'
@@ -30,8 +30,8 @@ export class CategoriesController {
         })
     }
 
-    openEditionForm (categoriesList) {
-        var modalInstance = this.modal.open({
+    openEditionForm () {
+        let modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.editForm.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl'
