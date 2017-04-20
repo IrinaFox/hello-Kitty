@@ -1,6 +1,7 @@
 'use strict';
 
 var categories = require('./categories'),
+    categoriesLength = categories.length,
     places = require('./places'),
     feedbacks = require('./feedbacks'),
     participants = require('./participants'),
@@ -19,7 +20,7 @@ function deleteCategory (id) {
 
 function addCategory (category) {
     var categoryJSON = JSON.parse(category);
-    categoryJSON.id = newIndex(categories);
+    categoryJSON.id = categoriesLength++;
     categories.push(categoryJSON);
     return JSON.stringify(categoryJSON);
 }
@@ -30,27 +31,26 @@ function changeCategory (id, category) {
     changedCategory.name = newCategory.name;
 }
 
-
 function getPlaces () {
-  var placesList = JSON.stringify(places);
-  return placesList;
+    var placesList = JSON.stringify(places);
+    return placesList;
 }
 
 function getParticipants () {
-  var participantsList = JSON.stringify(participants);
-  return participantsList;
+    var participantsList = JSON.stringify(participants);
+    return participantsList;
 }
 
 function getFeedbacks () {
-  var feedbacksRoster = JSON.stringify(feedbacks);
-  return feedbacksRoster;
+    var feedbacksRoster = JSON.stringify(feedbacks);
+    return feedbacksRoster;
 }
 
 function findElement (collection, id) {
     var element;
 
-    collection.forEach(function (item, i) {
-        if(id === item.id) {
+    collection.forEach(function (item) {
+        if(id == item.id) {
             element = item;
         }
     });
@@ -58,21 +58,9 @@ function findElement (collection, id) {
     return element;
 }
 
-function newIndex (collection) {
-    var maxIndex = 0;
-
-    collection.forEach(function (item) {
-        if (item.id > maxIndex) {
-            maxIndex = item.id;
-        }
-    });
-
-    return maxIndex + 1;
-}
-
 function getEvents () {
-  var eventsList = JSON.stringify(events);
-  return eventsList;
+    var eventsList = JSON.stringify(events);
+    return eventsList;
 }
 
 exports.getCategories = getCategories;

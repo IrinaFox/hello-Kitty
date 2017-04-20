@@ -11,19 +11,6 @@ export class CategoriesController {
         this.loadCategoriesList();
     }
 
-    create () {
-        if (this.scope.newCategory !== '') {
-            var newCategory = {name: this.scope.newCategory};
-
-            this.http.post('/categories', newCategory)
-                .then(() => {
-                    this.closeModal();
-                });
-
-          this.scope.newCategory = '';
-        }
-    }
-
     loadCategoriesList () {
         this.http.get('/categories')
             .then((response) => {
@@ -31,42 +18,29 @@ export class CategoriesController {
             });
     }
 
-    save (category) {
-        if (category.name !== '') {
-            this.http.put('/categories/'+category.id, category)
-                .then(() => {
-                    this.loadCategoriesList();
-                });
-        }
-      }
-
-    destroy (id) {
-        this.http.delete('/categories/'+id)
-            .then(() => {
-                this.loadCategoriesList();
-            });
-    }
-
     openCreationForm () {
-        this.modal.open({
+        var modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.createForm.html',
-            controller: 'CategoriesController',
-            controllerAs: 'categories'
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl'
         });
+
+        modalInstance.result.then(() => {
+            this.loadCategoriesList();
+        })
     }
 
-    openEditionForm () {
-        this.loadCategoriesList();
-        this.modal.open({
+    openEditionForm (categoriesList) {
+        var modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.editForm.html',
-            controller: 'CategoriesController',
-            controllerAs: 'categories'
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl'
         });
-    }
 
-    closeModal () {
-        this.scope.$close();
-    };
+        modalInstance.result.then(() => {
+            this.loadCategoriesList();
+        })
+    }
 
     filterEvents (buttonName) {
         this.log.log(buttonName);
