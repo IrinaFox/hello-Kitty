@@ -5,8 +5,7 @@ export class FeedbacksController {
         this.http = $http;
         this.scope = $scope;
         this.uibModal = $uibModal;
-        this.newFeedback = {};
-
+    
     this.getFeedbacks();
 	}	
     
@@ -25,11 +24,12 @@ export class FeedbacksController {
     }
 
    openAdduibModal () {
+         const newFeedback = {};
          let modals = this.uibModal.open({
             templateUrl: 'app/feedbacks/Addeditfeedbacks.html',
             controller: 'ModalControllerFeedbacks',
             controllerAs: 'modal', 
-            resolve: {newFeedbacks: () => this.newFeedback}
+            resolve: {newFeedbacks: () => newFeedback}
         });
 
         modals.result.then((feedback) => {
