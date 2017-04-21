@@ -62,11 +62,47 @@ function start () {
 
         //Places
         if (path === 'places') {
-              if (request.method === 'GET') {
-                response.writeHead(200, {'Content-Type': 'application/json'});
-                response.write(requestHandlers.getPlaces());
-                response.end();
-            }
+          if (request.method === 'GET') {
+            response.writeHead(200, {'Content-Type': 'application/json'});
+            response.write(requestHandlers.getPlaces());
+            response.end();
+          }
+          if (request.method === 'DELETE') {
+            requestHandlers.removePlace(id);
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.end();
+          }
+          if (request.method === 'POST') {
+            var body = '';
+
+            request.on('data', function(data) {
+              body += data;         
+            });
+
+            request.on('end', function() {
+              var placeJSON = JSON.parse(body),
+                  place = requestHandlers.addPlace(placeJSON);  
+                
+              response.writeHead(200, {'Content-Type': 'application/json'});
+              response.write(JSON.stringify(place));
+             response.end();       
+            });     
+          }
+          if (request.method === 'PUT') {
+              var body = '';
+
+              request.on("data", function(data) {
+                 body += data;
+              });
+  
+              request.on("end", function() {
+                  requestHandlers.changePlace(id, body);
+
+                  response.writeHead(200);
+                  response.write('');
+                  response.end();
+              });
+          }
         }
 
         //Participants

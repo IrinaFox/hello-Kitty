@@ -5,8 +5,10 @@ var categories = require('./categories'),
     places = require('./places'),
     feedbacks = require('./feedbacks'),
     participants = require('./participants'),
-    events = require('./events');
+    events = require('./events'),
+    idCounter = places.length;;
 
+//Categories
 function getCategories () {
     var categoriesList = JSON.stringify(categories);
     return categoriesList;
@@ -31,11 +33,38 @@ function changeCategory (id, category) {
 		 changedCategory.name = newCategory.name;
 }
 
+//Places
 function getPlaces () {
-    var placesList = JSON.stringify(places);
-    return placesList;
+  var placesList = JSON.stringify(places);
+  return placesList;
 }
 
+
+
+function removePlace (id) {
+  var item = findId(places, id);
+  places.splice(item, 1);
+}
+
+function addPlace (place) {
+  var placeId;
+  idCounter++;
+  placeId = String(idCounter);
+  place.id = placeId;
+  places.push(place);
+  
+  return place;
+}
+
+function changePlace (id, data) {
+    var item = findId(places, id),
+        placeData = JSON.parse(data);
+    
+    places.splice(item, 1, placeData);
+    return JSON.stringify(placeData);
+}
+
+//Participants
 
 function getParticipants () {
   var participantsList = JSON.stringify(participants);
@@ -82,6 +111,7 @@ function findParticipant (collection, id) {
 	return element;
 }
 
+//Feddbacks
 function getFeedbacks () {
     var feedbacksRoster = JSON.stringify(feedbacks);
     return feedbacksRoster;
@@ -116,14 +146,26 @@ function getEvents () {
     return eventsList;
 }
 
+function findId (collection, id) {
+  var findedItem;
+  collection.forEach(function (item, i) {
+    if(id === item.id) {
+      findedItem = i;
+    }
+  })
+  return findedItem;
+}
+
+exports.findId = findId;
 exports.getCategories = getCategories;
 exports.deleteCategory = deleteCategory;
 exports.addCategory = addCategory;
 exports.changeCategory = changeCategory;
 
-exports.getEvents = getEvents;
-
 exports.getPlaces = getPlaces;
+exports.removePlace = removePlace;
+exports.addPlace = addPlace;
+exports.changePlace = changePlace;
 
 exports.getParticipants = getParticipants;
 exports.deleteParticipant = deleteParticipant;
