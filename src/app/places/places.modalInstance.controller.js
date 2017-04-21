@@ -1,4 +1,4 @@
-export class ModalInstanceCtrl {
+export class ModalInstanceCtrlPlaces {
     constructor ($uibModalInstance, currentPlace) {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;

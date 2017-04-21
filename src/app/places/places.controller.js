@@ -6,7 +6,7 @@ export class PlacesController {
         this.log = $log;
         this.scope = $scope;
         this.modal = $uibModal;
-        this.currentPlace = {};
+        this.newPlace = {};
         this.ctrl = this;
                 
         this.getPlacesList();
@@ -29,10 +29,10 @@ export class PlacesController {
     openAddForm (size) {
         var modalInstance = this.modal.open({
             templateUrl: 'app/places/addForm.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'ModalInstanceCtrlPlaces',
             controllerAs: '$ctrl',
             size: size,
-            resolve: {currentPlace: () => this.currentPlace}
+            resolve: {currentPlace: () => this.newPlace}
         });
 
         modalInstance.result.then((place) => {   
@@ -47,15 +47,14 @@ export class PlacesController {
     openEditForm (size, place) {
         var modalInstance = this.modal.open({
             templateUrl: 'app/places/addForm.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'ModalInstanceCtrlPlaces',
             controllerAs: '$ctrl',
             size: size,
             resolve: {currentPlace: () => place}
         });
 
         modalInstance.result.then((currentPlace) => {
-            console.log(currentPlace);
-            var id = currentPlace.id;
+            var id = place.id;
             
             this.http.put('/places/' + id, currentPlace)
             .then(() => {

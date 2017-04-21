@@ -92,8 +92,6 @@ function getEvents () {
 }
 
 function findId (collection, id) {
-  console.log(collection);
-  console.log(id);
   var findedItem;
   collection.forEach(function (item, i) {
     if(id === item.id) {
