@@ -15,7 +15,7 @@ function getCategories () {
 function deleteCategory (id) {
     var category= findElement(categories, id),
         categoryIndex = categories.indexOf(category);
-    categories.splice(categoryIndex, 1);
+        categories.splice(categoryIndex, 1);
 }
 
 function addCategory (category) {
@@ -28,7 +28,7 @@ function addCategory (category) {
 function changeCategory (id, category) {
     var newCategory = JSON.parse(category),
         changedCategory = findElement(categories, id);
-    changedCategory.name = newCategory.name;
+		 changedCategory.name = newCategory.name;
 }
 
 function getPlaces () {
@@ -36,16 +36,18 @@ function getPlaces () {
     return placesList;
 }
 
+
 function getParticipants () {
   var participantsList = JSON.stringify(participants);
   return participantsList;
 }
 
 function deleteParticipant (id) {
-
-  var number;
+	var numberId = Number(id),
+		number;
+		
   participants.forEach(function(item, index){
-    if (item.id==id){
+    if (item.id === numberId){
       number = index;
     }
   });
@@ -55,29 +57,29 @@ function deleteParticipant (id) {
 
 function addPerson(person) {
   var personJSON = JSON.parse(person);
-  console.log(personJSON);
-  personJSON.id = newIndex(participants);
-  participants.push(personJSON);
+		personJSON.id = newIndex(participants);
+		participants.push(personJSON);
+		
   return JSON.stringify(personJSON);
 }
 
 function changeParticipant(id, partisipant) {
 
   var newPartisipant = JSON.parse(partisipant),
-    changedPartisipant = findParticipant(participants, id);
-  changedPartisipant.name = newPartisipant.name;
-  changedPartisipant.lastname = newPartisipant.lastname;
+      numberId = Number(id),      
+      changedParticipant = findParticipant(participants, numberId);
+      changedParticipant.name = newPartisipant.name;
+      changedParticipant.lastname = newPartisipant.lastname;
 }
 
 function findParticipant (collection, id) {
-  var element;
-
-  collection.forEach(function (item) {
-    if(id == item.id) {
-      element = item;
-    }
-  });
-  return element;
+	var element;
+	  collection.forEach(function (item) {
+		if(id === item.id) {
+		  element = item;
+		}
+	  });
+	return element;
 }
 
 function getFeedbacks () {

@@ -30,11 +30,11 @@ function start () {
             if (request.method === 'POST') {
                 var postData = '';
 
-                request.addListener("data", function(postDataChunk) {
+                request.addListener('data', function(postDataChunk) {
                     postData += postDataChunk;
                 });
 
-                request.addListener("end", function() {
+                request.addListener('end', function() {
                     var category = requestHandlers.addCategory(postData);
 
                     response.writeHead(200);
@@ -46,11 +46,11 @@ function start () {
           if (request.method === 'PUT') {
               var postData = '';
 
-              request.addListener("data", function(postDataChunk) {
+              request.addListener('data', function(postDataChunk) {
                   postData += postDataChunk;
               });
 
-              request.addListener("end", function() {
+              request.addListener('end', function() {
                   requestHandlers.changeCategory(id, postData);
 
                   response.writeHead(200);
@@ -85,11 +85,11 @@ function start () {
         if (request.method === 'POST') {
           var postData = '';
 
-          request.addListener("data", function(postDataChunk) {
+          request.addListener('data', function(postDataChunk) {
             postData += postDataChunk;
           });
 
-          request.addListener("end", function() {
+          request.addListener('end', function() {
             var person = requestHandlers.addPerson(postData);
 
             response.writeHead(200);
@@ -101,11 +101,11 @@ function start () {
         if (request.method === 'PUT') {
           var postData = '';
 
-          request.addListener("data", function(postDataChunk) {
+          request.addListener('data', function(postDataChunk) {
             postData += postDataChunk;
           });
 
-          request.addListener("end", function() {
+          request.addListener('end', function() {
             requestHandlers.changeParticipant(id, postData);
 
             response.writeHead(200);

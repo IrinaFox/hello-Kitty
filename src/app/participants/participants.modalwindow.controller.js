@@ -2,11 +2,15 @@ export class ModalWindowCtrl {
     constructor ($uibModalInstance) {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;
-        this.ctrl = this;
     }
 
-    sign (place) {
-        this.uibModalInstance.close(place);
+    ok (participant) {
+       
+       if (participant === undefined){
+          this.uibModalInstance.dismiss('cancel');
+       }
+
+        this.uibModalInstance.close(participant);
     }
 
     cancel () {
