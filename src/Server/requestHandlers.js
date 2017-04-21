@@ -158,11 +158,6 @@ function newIndex (collection) {
   return maxIndex + 1;
 }
 
-function getEvents () {
-    var eventsList = JSON.stringify(events);
-    return eventsList;
-}
-
 function findId (collection, id) {
   var findedItem;
   collection.forEach(function (item, i) {
@@ -171,6 +166,15 @@ function findId (collection, id) {
     }
   })
   return findedItem;
+}
+
+function getEvents (categoryID) {
+    var eventsOfCategory = events;
+    if (categoryID !== 'all') {
+      categoryID = Number(categoryID);
+      eventsOfCategory = eventsOfCategory.filter(event => event.categoryID === categoryID);
+    }
+    return JSON.stringify(eventsOfCategory);
 }
 
 exports.findId = findId;
@@ -190,6 +194,8 @@ exports.addPerson = addPerson;
 exports.changeParticipant = changeParticipant;
 
 exports.getFeedbacks = getFeedbacks;
+
+exports.getEvents = getEvents;
 exports.removeFeedback = removeFeedback;
 exports.addFeedback = addFeedback;
 exports.changeFeedback = changeFeedback;

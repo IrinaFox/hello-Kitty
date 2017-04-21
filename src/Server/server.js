@@ -196,7 +196,7 @@ function start () {
         if (path === 'events') {
             if (request.method === 'GET') {
                 response.writeHead(200, {"Content-Type": "application/json"});
-                response.write(requestHandlers.getEvents());
+                response.write(requestHandlers.getEvents(id));
                 response.end();
             }
         }
