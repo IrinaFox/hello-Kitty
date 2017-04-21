@@ -23,17 +23,17 @@
            class="btn btn-info">Feedbacks</a>
       </td>
       <td>
-        <button ng-click="event.openModalForm( {{event}} )" 
+        <button ng-click="events.openModalForm( {{event}} )" 
                 class="btn btn-default btn-lg">Edit</button>
       </td>
       <td>
-        <button ng-click="event.remove( {{event}} ) 
+        <button ng-click="events.remove( {{event}} ) 
                 class="close">&times;</button>
       </td>
     </tr>
   </tbody>
   <tfoot>
-    <a ng-click="event.openModalForm()" 
+    <a ng-click="events.openModalForm()" 
        class="btn btn-info">Add event</a>
   </tfoot>
 </table>

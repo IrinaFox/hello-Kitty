@@ -1,5 +1,5 @@
 export class EventsController {
-	constructor ($log, $http, $stateParams, $uibModal) {
+	constructor ($scope, $log, $http, $state, $stateParams, $uibModal) {
 		'ngInject';
     
     this.http = $http;
@@ -9,12 +9,15 @@ export class EventsController {
     
     this.events = [];
     
-    //this.loadList(this.stateParams.category);
-    this.loadList();
+    $scope.state = $state.current
+    $scope.params = $stateParams;
+    
+    this.loadList(this.stateParams.category);
   }
     
   loadList (categoryID) {
-    this.http.get('/events/' + categoryID || 'all')
+    this.log.log(categoryID);
+    this.http.get('/events/' + (categoryID || 'all'))
       .then(response => {
         this.events = response.data;
       });

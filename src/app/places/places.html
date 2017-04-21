@@ -1,4 +1,5 @@
-<table class="table table-hover">
+<div class = "col-sm-8">
+<table class = "table table-hover">
     <tbody>
         <caption>All places</caption>
             <tr>
@@ -10,19 +11,27 @@
                 <th>edit</th>
                 <th>remove</th>
             </tr>
-            <tr class="active" ng-repeat="place in places.places">
-                <td>{{place.id}}</td>
+            <tr class = "active" 
+                ng-repeat = "place in places.places track by place.id">
+                <td>{{$index + 1}}</td>
                 <td>{{place.name}}</td>
                 <td>{{place.adress}}</td>
                 <td>{{place.coords}}</td>
-                <td><img ng-src="app/places/img/{{place.photo}}"></td>
+                <td><img ng-src = "app/places/img/{{place.photo}}"></td>
                 <td>
-                    <button class="btn btn-default" >Edit</button>
+                    <button class="btn btn-default"
+                        ng-click="places.openEditForm('sm', place)">Edit</button>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" 
+                        ng-click="places.removePlace(place.id)" 
+                        class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove-circle"></i>
+                    </button>
                 </td>
             </tr>
     </tbody>
 </table>
-<button title="two clicks" class="btn btn-info" ng-click="places.getPlaces()">show Places</button>
+</div>
+<button class = "btn btn-info" 
+    ng-click="places.openAddForm('sm')">Add Place</button>
