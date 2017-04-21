@@ -1,7 +1,7 @@
 export function routerParticipants ($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('participants', {
+    .state('categories.participants', {
       url: '/participants',
       templateUrl: 'app/participants/participants.html',
       controller: 'ParticipantsController',

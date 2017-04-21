@@ -1,7 +1,7 @@
-export function eventsRoute ($stateProvider) {
+export function routerPlaces ($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('events', {
+    .state('categories.events', {
       url: '/events',
       templateUrl: 'app/events/events.html',
       controller: 'EventsController',

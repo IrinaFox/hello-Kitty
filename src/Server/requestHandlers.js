@@ -58,9 +58,12 @@ function findElement (collection, id) {
     return element;
 }
 
-function getEvents () {
-    var eventsList = JSON.stringify(events);
-    return eventsList;
+function getEvents (categoryID) {
+    var eventsOfCategory = events;
+    if (categoryID !== 'all') {
+      eventsOfCategory = eventsOfCategory.filter(event => event.categoryID === categoryID);
+    }
+    return JSON.stringify(eventsOfCategory);
 }
 
 exports.getCategories = getCategories;
