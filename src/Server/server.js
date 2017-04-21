@@ -153,12 +153,44 @@ function start () {
 
         //Feedbacks
         if (path === 'feedbacks') {
-            if (request.method === 'GET') {
-                response.writeHead(200, {"Content-Type": "application/json"});
-                response.write(requestHandlers.getFeedbacks());
+      if (request.method === 'GET') {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.write(requestHandlers.getFeedbacks());
+        response.end();
+      }else if (request.method === 'PUT') {
+            var Info = '';
+
+            request.on("data", function(infa) {
+               Info += infa;
+            });
+
+            request.on("end", function() {
+                requestHandlers.changeFeedback(id, Info);
+                response.writeHead(200);
+                response.write('');
                 response.end();
+            });
+        } else if (request.method === 'POST') {
+            var Info = '';
+
+                request.on("data", function(infa) {
+                    Info += infa;
+                });
+                request.on("end", function() {
+                   var feedback = requestHandlers.addFeedback(Info);
+
+                    response.writeHead(200);
+                    response.write(feedback);
+                    response.end();
+                });
             }
-        }
+          
+            else if (request.method === 'DELETE') {
+                requestHandlers.removeFeedback(id);
+                response.writeHead(200, {"Content-Type": "application/json"});
+                response.end();
+            } 
+    }
 
         //Events
         if (path === 'events') {

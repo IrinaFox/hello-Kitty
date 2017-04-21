@@ -4,9 +4,10 @@ var categories = require('./categories'),
     categoriesLength = categories.length,
     places = require('./places'),
     feedbacks = require('./feedbacks'),
+    feedbacksLength = feedbacks.length,
     participants = require('./participants'),
     events = require('./events'),
-    idCounter = places.length;;
+    idCounter = places.length;
 
 //Categories
 function getCategories () {
@@ -38,8 +39,6 @@ function getPlaces () {
   var placesList = JSON.stringify(places);
   return placesList;
 }
-
-
 
 function removePlace (id) {
   var item = findId(places, id);
@@ -117,6 +116,24 @@ function getFeedbacks () {
     return feedbacksRoster;
 }
 
+function addFeedback (feedback) {
+    var feedbacksJSON = JSON.parse(feedback);
+    feedbacksJSON.id = ++feedbacksLength;
+    feedbacks.push(feedbacksJSON);
+    return JSON.stringify(feedbacksJSON);
+}
+
+function changeFeedback (id, data) {
+    var newFeedback = JSON.parse(data),
+    feedbackId = findElement(feedbacks, id);
+    feedbacks.splice(newFeedback, 1, feedbackId);
+}
+
+function removeFeedback (id) {
+     var feedback = findElement(feedbacks, id);
+     feedbacks.splice(feedback, 1);
+}
+
 function findElement (collection, id) {
     var element;
 
@@ -179,4 +196,6 @@ exports.changeParticipant = changeParticipant;
 exports.getFeedbacks = getFeedbacks;
 
 exports.getEvents = getEvents;
-
+exports.removeFeedback = removeFeedback;
+exports.addFeedback = addFeedback;
+exports.changeFeedback = changeFeedback;
