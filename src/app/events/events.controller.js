@@ -1,5 +1,5 @@
 export class EventsController {
-	constructor ($scope, $log, $http, $state, $stateParams, $uibModal) {
+	constructor ($log, $http, $stateParams, $uibModal) {
 		'ngInject';
     
     this.http = $http;
@@ -8,9 +8,6 @@ export class EventsController {
     this.uibModal = $uibModal;
     
     this.events = [];
-    
-    $scope.state = $state.current
-    $scope.params = $stateParams;
     
     this.loadList(this.stateParams.category);
   }
