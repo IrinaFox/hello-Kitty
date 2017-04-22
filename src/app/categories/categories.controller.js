@@ -21,8 +21,9 @@ export class CategoriesController {
     openCreationForm () {
         let modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.createForm.html',
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl'
+            controller: 'CategoriesModalWindow',
+            controllerAs: '$ctrl',
+            resolve: {categoriesList: () => this.categoriesList}
         });
 
         modalInstance.result.then(() => {
@@ -33,8 +34,9 @@ export class CategoriesController {
     openEditionForm () {
         let modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.editForm.html',
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl'
+            controller: 'CategoriesModalWindow',
+            controllerAs: '$ctrl',
+            resolve: {categoriesList: () => this.categoriesList}
         });
 
         modalInstance.result.then(() => {
