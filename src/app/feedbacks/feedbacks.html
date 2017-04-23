@@ -6,20 +6,22 @@
                 <th>Comment</th>
                 <th>Author</th>
                 <th>edit</th>
-                <th>remove</th>
+                <th>del</th>
             </tr>
-            <tr class="active" ng-repeat="feedback in feedbacks.feedbacks">
+            <tr class="active" ng-repeat="feedback in feedbacks.feedbacks track by feedback.id">
                 <td>{{feedback.raiting}}</td>
                 <td>{{feedback.comment}}</td>
                 <td>{{feedback.author}}</td>
                 <td>
-                    <button class="btn btn-default" >Edit </utton>
+                    <button class="btn btn-default" ng-click="feedbacks.openEdituibModal(feedback)">Edit </button>
                 </td>
+               
                 <td>
-                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" 
+                    ng-click="feedbacks.deleteFeedback(feedbacks.id)"
+                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </td>
             </tr>
     </tbody>
 </table>
-<button title="two clicks" class="btn btn-info" ng-click="feedbacks.getFeedbacks()">Show feedback</button>
-
+<button class="btn btn-default" ng-click="feedbacks.openAdduibModal()">Add </button>

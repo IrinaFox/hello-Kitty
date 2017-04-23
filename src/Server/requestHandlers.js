@@ -4,9 +4,10 @@ var categories = require('./categories'),
     categoriesLength = categories.length,
     places = require('./places'),
     feedbacks = require('./feedbacks'),
+    feedbacksLength = feedbacks.length,
     participants = require('./participants'),
     events = require('./events'),
-    idCounter = places.length;;
+    idCounter = places.length;
 
 //Categories
 function getCategories () {
@@ -17,12 +18,12 @@ function getCategories () {
 function deleteCategory (id) {
     var category= findElement(categories, id),
         categoryIndex = categories.indexOf(category);
-    categories.splice(categoryIndex, 1);
+        categories.splice(categoryIndex, 1);
 }
 
 function addCategory (category) {
     var categoryJSON = JSON.parse(category);
-    categoryJSON.id = categoriesLength++;
+    categoryJSON.id = newIndex(categories);
     categories.push(categoryJSON);
     return JSON.stringify(categoryJSON);
 }
@@ -30,7 +31,7 @@ function addCategory (category) {
 function changeCategory (id, category) {
     var newCategory = JSON.parse(category),
         changedCategory = findElement(categories, id);
-    changedCategory.name = newCategory.name;
+		 changedCategory.name = newCategory.name;
 }
 
 //Places
@@ -63,15 +64,74 @@ function changePlace (id, data) {
 }
 
 //Participants
+
 function getParticipants () {
-    var participantsList = JSON.stringify(participants);
-    return participantsList;
+  var participantsList = JSON.stringify(participants);
+  return participantsList;
+}
+
+function deleteParticipant (id) {
+	var numberId = Number(id),
+		number;
+		
+  participants.forEach(function(item, index){
+    if (item.id === numberId){
+      number = index;
+    }
+  });
+
+  participants.splice(number, 1);
+}
+
+function addPerson(person) {
+  var personJSON = JSON.parse(person);
+		personJSON.id = newIndex(participants);
+		participants.push(personJSON);
+		
+  return JSON.stringify(personJSON);
+}
+
+function changeParticipant(id, partisipant) {
+
+  var newPartisipant = JSON.parse(partisipant),
+      numberId = Number(id),      
+      changedParticipant = findParticipant(participants, numberId);
+      changedParticipant.name = newPartisipant.name;
+      changedParticipant.lastname = newPartisipant.lastname;
+}
+
+function findParticipant (collection, id) {
+	var element;
+	  collection.forEach(function (item) {
+		if(id === item.id) {
+		  element = item;
+		}
+	  });
+	return element;
 }
 
 //Feddbacks
 function getFeedbacks () {
     var feedbacksRoster = JSON.stringify(feedbacks);
     return feedbacksRoster;
+}
+
+function addFeedback (feedback) {
+    var feedbacksJSON = JSON.parse(feedback);
+    feedbacksJSON.id = ++feedbacksLength;
+    feedbacks.push(feedbacksJSON);
+    return JSON.stringify(feedbacksJSON);
+}
+
+function changeFeedback (id, data) {
+    var newFeedback = JSON.parse(data),
+    feedbackId = findElement(feedbacks, id);
+    feedbacks.splice(newFeedback, 1, feedbackId);
+}
+
+function removeFeedback (id) {
+     var feedback = findElement(feedbacks, id);
+     feedbacks.splice(feedback, 1);
 }
 
 function findElement (collection, id) {
@@ -86,9 +146,16 @@ function findElement (collection, id) {
     return element;
 }
 
-function getEvents () {
-    var eventsList = JSON.stringify(events);
-    return eventsList;
+function newIndex (collection) {
+  var maxIndex = 0;
+
+  collection.forEach(function (item) {
+    if (item.id > maxIndex) {
+      maxIndex = item.id;
+    }
+  });
+
+  return maxIndex + 1;
 }
 
 function findId (collection, id) {
@@ -99,6 +166,15 @@ function findId (collection, id) {
     }
   })
   return findedItem;
+}
+
+function getEvents (categoryID) {
+    var eventsOfCategory = events;
+    if (categoryID !== 'all') {
+      categoryID = Number(categoryID);
+      eventsOfCategory = eventsOfCategory.filter(event => event.categoryID === categoryID);
+    }
+    return JSON.stringify(eventsOfCategory);
 }
 
 exports.findId = findId;
@@ -113,6 +189,13 @@ exports.addPlace = addPlace;
 exports.changePlace = changePlace;
 
 exports.getParticipants = getParticipants;
+exports.deleteParticipant = deleteParticipant;
+exports.addPerson = addPerson;
+exports.changeParticipant = changeParticipant;
 
 exports.getFeedbacks = getFeedbacks;
 
+exports.getEvents = getEvents;
+exports.removeFeedback = removeFeedback;
+exports.addFeedback = addFeedback;
+exports.changeFeedback = changeFeedback;
