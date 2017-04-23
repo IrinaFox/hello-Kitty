@@ -3,14 +3,14 @@ export class ModalInstanceCtrlPlaces {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;
         this.ctrl = this;
-        this.currentPlace = currentPlace;
+        this.place = currentPlace;
     }
 
     ok (place) {
-        this.currentPlace.name = place.name || this.currentPlace.name;
-        this.currentPlace.adress = place.adress || this.currentPlace.adress;
-        this.currentPlace.coords = place.coords || this.currentPlace.coords;
-        this.uibModalInstance.close(this.currentPlace);
+       /* this.place.name = place.name;
+        this.place.adress = place.adress;
+        this.place.coords = place.coords;*/
+        this.uibModalInstance.close(this.place);
     }
 
     cancel () {
