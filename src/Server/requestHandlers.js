@@ -142,7 +142,7 @@ function findElement (collection, id) {
             element = item;
         }
     });
-    console.log("!!!!!!!!" + id, element);
+
     return element;
 }
 
