@@ -1,4 +1,4 @@
-export class CategoriesModalWindow {
+export class CategoriesModalWindowController {
     constructor ($uibModalInstance, $scope, $http, categoriesList) {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;
