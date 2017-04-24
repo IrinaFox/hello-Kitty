@@ -5,18 +5,20 @@
             <label for="edit" class="col-sm-2 control-label">{{category.name}}</label>
             <div class="col-sm-10">
                 <input id="edit"
+                       ng-style="deleteStyle"
                        ng-model="category.name"
                        type="text" class="form-control">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="modal-footer">
-                        <button ng-click="$ctrl.save(category)"
-                                type="submit" class="btn btn-default">Save
-                        </button>
-                        <button ng-click="$ctrl.destroy(category.id)"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                <div class="col-sm-offset-2 col-sm-10 modal-footer">
+                    <button ng-style="saveStyle"
+                            ng-click="$ctrl.save(category);
+                                             saveStyle={'background-color':'lightgreen'}"
+                            type="submit" class="btn btn-default">Save
+                    </button>
+                    <button ng-click="$ctrl.destroy(category);
+                                             deleteStyle={'background-color':'pink'} "
+                            aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -24,7 +26,7 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-warning"
+   <button class="btn btn-warning"
             type="submit"
-            ng-click="$ctrl.ok()">Save all changes</button>
+            ng-click="$ctrl.ok()">Cancel</button>
 </div>
