@@ -26,15 +26,6 @@ export class CategoriesModalWindowController {
         if (!category.del) {
             category.del = true;
             this.http.delete('/categories/' + category.id);
-
-          let inputCategoryName = document.querySelector('.edit_' + category.id),
-              buttonSave = document.querySelector('.buttonSave_' + category.id),
-              buttonDelete = document.querySelector('.buttonDelete_' + category.id);
-
-            inputCategoryName.disabled = true;
-            buttonSave.disabled = true;
-            buttonDelete.disabled = true;
-
             category.name = 'Deleted';
         }
     }
