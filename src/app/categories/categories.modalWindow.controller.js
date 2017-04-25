@@ -22,8 +22,12 @@ export class CategoriesModalWindowController {
         }
     }
 
-    destroy (id) {
-        this.http.delete('/categories/'+id);
+    destroy (category) {
+        if (!category.del) {
+            category.del = true;
+            this.http.delete('/categories/' + category.id);
+            category.name = 'Deleted';
+        }
     }
 
     save (category) {
@@ -38,5 +42,5 @@ export class CategoriesModalWindowController {
 
     cancel () {
         this.uibModalInstance.dismiss('cancel');
-    };
+    }
 }
