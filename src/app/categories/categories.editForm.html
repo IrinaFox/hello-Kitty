@@ -2,20 +2,20 @@
     <form action="" class="form-horizontal row">
         <div class="form-group col-sm-10"
              ng-repeat="category in $ctrl.categoriesList track by category.id">
-            <label for="edit" class="col-sm-2 control-label">{{category.name}}</label>
+            <label class="col-sm-2 control-label">{{category.name}}</label>
             <div class="col-sm-10">
-                <input id="edit"
-                       ng-disabled="checked"
+                <input id="edit_{{category.id}}"
+                       ng-disabled="deleted"
                        ng-model="category.name"
-                       type="text" class="form-control">
+                       type="text" class="form-control edit_{{category.id}}">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button ng-click="$ctrl.save(category)"
-                            ng-disabled="checked"
-                            type="submit" class="btn btn-default">Save
+                            ng-disabled="deleted"
+                            type="submit" class="btn btn-default buttonSave_{{category.id}}">Save
                     </button>
                     <button ng-click="$ctrl.destroy(category)"
-                            ng-model="checked"
-                            aria-label="Delete">
+                            aria-label="Delete"
+                            class="buttonDelete_{{category.id}}">
                       <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

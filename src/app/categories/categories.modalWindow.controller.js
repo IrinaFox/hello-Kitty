@@ -23,8 +23,17 @@ export class CategoriesModalWindowController {
     }
 
     destroy (category) {
+        let inputCategoryName = document.querySelector('.edit_' + category.id),
+            buttonSave = document.querySelector('.buttonSave_' + category.id),
+            buttonDelete = document.querySelector('.buttonDelete_' + category.id);
+
+        inputCategoryName.disabled = true;
+        buttonSave.disabled = true;
+        buttonDelete.disabled = true;
+
         category.name = 'Deleted';
-        if (category.name !== '' && !category.del) {
+
+        if (!category.del) {
             category.del = true;
             this.http.delete('/categories/' + category.id);
         }
@@ -34,7 +43,7 @@ export class CategoriesModalWindowController {
         if (category.name !== '' && !category.del) {
             this.http.put('/categories/'+category.id, category);
         } else if (category.del) {
-          category.name = 'Deleted';
+            category.name = 'Deleted';
         }
     }
 
