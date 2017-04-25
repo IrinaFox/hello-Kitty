@@ -2,7 +2,7 @@ export class ModalControllerFeedbacks {
     constructor ($uibModalInstance, $scope, newFeedbacks) {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;
-        this.feedback = newFeedbacks;
+        this.feedback = angular.copy(newFeedbacks);
     }
 
     save (feedback) {
