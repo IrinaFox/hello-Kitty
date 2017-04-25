@@ -33,6 +33,8 @@ export class CategoriesModalWindowController {
     save (category) {
         if (category.name !== '' && !category.del) {
             this.http.put('/categories/'+category.id, category);
+        } else if (category.del) {
+          category.name = 'Deleted';
         }
     }
 
