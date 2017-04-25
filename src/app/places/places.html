@@ -1,26 +1,30 @@
 <div class = "col-sm-8">
-<table class = "table table-hover">
-    <tbody>
+    <table class = "table table-hover">
         <caption>All places</caption>
+        <thead>
             <tr>
                 <th>№</th>
                 <th>Name</th>
+                <th>capacity seating</th>
                 <th>Adress</th>
                 <th>coords</th>
                 <th>photo</th>
                 <th>edit</th>
                 <th>remove</th>
             </tr>
+        </thead>
+        <tbody>
             <tr class = "active" 
                 ng-repeat = "place in places.places track by place.id">
                 <td>{{$index + 1}}</td>
                 <td>{{place.name}}</td>
+                <td>{{place.capacity}}</td>
                 <td>{{place.adress}}</td>
                 <td>{{place.coords}}</td>
                 <td><img ng-src = "app/places/img/{{place.photo}}"></td>
                 <td>
                     <button class="btn btn-default"
-                        ng-click="places.openEditForm('sm', place)">Edit</button>
+                        ng-click="places.openEditForm('md', place)">Edit</button>
                 </td>
                 <td>
                     <button type="button" 
@@ -30,8 +34,8 @@
                     </button>
                 </td>
             </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 <button class = "btn btn-info" 
-    ng-click="places.openAddForm('sm')">Add Place</button>
+    ng-click="places.openAddForm('md')">Add Place</button>

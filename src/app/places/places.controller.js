@@ -1,13 +1,9 @@
 export class PlacesController {
-    constructor ($log, $http, $scope, $uibModal) {
+    constructor ($http, $uibModal) {
         'ngInject';
 
         this.http = $http;
-        this.log = $log;
-        this.scope = $scope;
         this.modal = $uibModal;
-        this.newPlace = {};
-        this.ctrl = this;
                 
         this.getPlacesList();
     }
@@ -27,13 +23,14 @@ export class PlacesController {
     }
 
     openAddForm (size) {
-        var modalInstance = this.modal.open({
-            templateUrl: 'app/places/addForm.html',
-            controller: 'ModalInstanceCtrlPlaces',
-            controllerAs: '$ctrl',
-            size: size,
-            resolve: {currentPlace: () => this.newPlace}
-        });
+        let newPlace = {},
+            modalInstance = this.modal.open({
+                templateUrl: 'app/places/addForm.html',
+                controller: 'ModalInstanceCtrlPlaces',
+                controllerAs: '$ctrl',
+                size: size,
+                resolve: {currentPlace: () => newPlace}
+            });
 
         modalInstance.result.then((place) => {   
 
@@ -45,16 +42,16 @@ export class PlacesController {
     }
 
     openEditForm (size, place) {
-        var modalInstance = this.modal.open({
-            templateUrl: 'app/places/addForm.html',
-            controller: 'ModalInstanceCtrlPlaces',
-            controllerAs: '$ctrl',
-            size: size,
-            resolve: {currentPlace: () => place}
-        });
+        let modalInstance = this.modal.open({
+                templateUrl: 'app/places/addForm.html',
+                controller: 'ModalInstanceCtrlPlaces',
+                controllerAs: '$ctrl',
+                size: size,
+                resolve: {currentPlace: () => place}
+            });
 
         modalInstance.result.then((currentPlace) => {
-            var id = place.id;
+            let id = place.id;
             
             this.http.put('/places/' + id, currentPlace)
             .then(() => {
