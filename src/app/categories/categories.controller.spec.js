@@ -15,6 +15,6 @@ describe('CategoriesController', () => {
 
     it('the test number must be 10', () => {
         controller.onlyForTest();
-        expect(controller.testNumber).toEqual(10);
+        expect(controller.testNumber).toEqual(jasmine.any(Number));
     });
 });
