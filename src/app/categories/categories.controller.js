@@ -11,6 +11,10 @@ export class CategoriesController {
         this.loadCategoriesList();
     }
 
+    onlyForTest () {
+        this.testNumber = 10;
+    }
+
     loadCategoriesList () {
         this.http.get('/categories')
             .then((response) => {
