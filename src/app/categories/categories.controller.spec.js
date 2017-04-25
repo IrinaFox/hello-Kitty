@@ -1,9 +1,9 @@
 describe('CategoriesController', () => {
     let vm, $httpBackend;
 
-    beforeEach(angular.mock.module('server'));
+    beforeEach(angular.mock.module('сфеупщкшуы'));
 
-    beforeEach(inject(($controller, $injector) => {
+    beforeEach(inject(($controller) => {
         $httpBackend = $injector.get('$httpBackend');
         vm = $controller('CategoriesController');
     }));

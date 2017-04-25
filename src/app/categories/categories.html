@@ -1,20 +1,34 @@
-<div class="nav">
-    <button class="btn btn-primary btn-lg"
-            ng-click="">All</button>
-    <a class="btn btn-primary btn-lg"
-            ng-repeat="category in categories.categoriesList track by category.id"
-            ui-sref=".events({category: {{category.id}} })">{{category.name}}</a>
-    <button class="btn btn-default btn-lg"
-            ng-click="categories.openCreationForm()">+</button>
-    <button ng-click="categories.openEditionForm()"
-            class="btn btn-default btn-lg">Edit</button>
+<div class="page-header">
+    <h1> <span class="glyphicon glyphicon-list-alt"></span> Organizer "KittyEvents"</h1>
+  </div>
+  <div class="container-fluid">
+    <ul class="nav nav-pills">
+      <li class="active">
+        <a ui-sref=".events({category: {{category.id}} })"
+           class="navbar-brand">All</a>
+      </li>
+      <li ng-repeat="category in categories.categoriesList track by category.id">
+        <a ui-sref=".events({category: {{category.id}} })"
+           class="navbar-brand">{{category.name}}
+        </a>
+      </li>
+      <li>
+        <button class="btn btn-default btn-lg"
+                ng-click="categories.openCreationForm()">+</button>
+      </li>
+      <li>
+        <button ng-click="categories.openEditionForm()"
+                class="btn btn-default btn-lg">Edit</button>
+      </li>
+    </ul>
 </div>
 
-<div class="nav col-sm-10">
-    <a class="btn btn-info" ui-sref=".places">All places</a>
-    <a class="btn btn-info" ui-sref=".participants">All participants</a>
-    <a class="btn btn-info" ui-sref=".feedbacks">Feedbacks</a>
-    <a class="btn btn-info" ui-sref=".events">Events</a>
-</div>
 
 <div ui-view></div>
+
+<div class="nav col-sm-10">
+  <a class="btn btn-info" ui-sref=".places">All places</a>
+  <a class="btn btn-info" ui-sref=".participants">All participants</a>
+  <a class="btn btn-info" ui-sref=".feedbacks">Feedbacks</a>
+  <a class="btn btn-info" ui-sref=".events">Events</a>
+</div>
