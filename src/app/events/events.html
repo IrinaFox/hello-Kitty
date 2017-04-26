@@ -10,30 +10,30 @@
       <th>edit</th>
       <th>remove</th>
     </tr>
-    <tr ng-repeat="event in events.events track by event.id">
+    <tr ng-repeat="event in events.events | filter:multiSearch track by event.id">
       <td>{{event.name}}</td>
       <td>{{event.place}}</td>
       <td>{{event.description}}</td>
       <td>
-        <a ui-sref="participants({eventID: {{event.id}} })" 
+        <a ui-sref="participants({eventID: {{event.id}} })"
            class="btn btn-info">Participants</a>
       </td>
       <td>
-        <a ui-sref="feedbacks({eventID: {{event.id}} })" 
+        <a ui-sref="feedbacks({eventID: {{event.id}} })"
            class="btn btn-info">Feedbacks</a>
       </td>
       <td>
-        <button ng-click="events.openModalForm( {{event}} )" 
+        <button ng-click="events.openModalForm( {{event}} )"
                 class="btn btn-default btn-lg">Edit</button>
       </td>
       <td>
-        <button ng-click="events.remove( {{event}} ) 
+        <button ng-click="events.remove( {{event}} )
                 class="close">&times;</button>
       </td>
     </tr>
   </tbody>
   <tfoot>
-    <a ng-click="events.openModalForm()" 
+    <a ng-click="events.openModalForm()"
        class="btn btn-info">Add event</a>
   </tfoot>
 </table>

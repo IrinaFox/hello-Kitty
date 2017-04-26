@@ -47,8 +47,4 @@ export class CategoriesController {
             this.loadCategoriesList();
         })
     }
-
-    filterEvents (buttonName) {
-        this.log.log(buttonName);
-    }
 }

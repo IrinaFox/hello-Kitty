@@ -2,7 +2,7 @@
     <h1> <span class="glyphicon glyphicon-list-alt"></span> Organizer "KittyEvents"</h1>
   </div>
   <div class="container-fluid">
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills navbar-inverse">
       <li class="active">
         <a ui-sref=".events('all')"
            class="navbar-brand">All</a>
@@ -23,6 +23,10 @@
     </ul>
 </div>
 <br>
+
+<label><span class="glyphicon glyphicon-search"></span>
+    <input type="text" id="query" ng-model="multiSearch"/>
+</label>
 
 <div ui-view></div>
 

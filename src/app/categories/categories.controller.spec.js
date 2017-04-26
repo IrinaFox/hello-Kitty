@@ -1,7 +1,7 @@
 describe('CategoriesController', () => {
     let controller, scope;
 
-    beforeEach(module('categories'));
+    beforeEach(angular.mock.module('categories'));
 
     beforeEach(inject(($controller, $rootScope) => {
         scope = $rootScope.$new();
