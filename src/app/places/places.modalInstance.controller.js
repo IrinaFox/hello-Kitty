@@ -2,15 +2,11 @@ export class ModalInstanceCtrlPlaces {
     constructor ($uibModalInstance, currentPlace) {
         'ngInject';
         this.uibModalInstance = $uibModalInstance;
-        this.ctrl = this;
-        this.currentPlace = currentPlace;
+        this.place = angular.copy(currentPlace);
     }
 
     ok (place) {
-        this.currentPlace.name = place.name || this.currentPlace.name;
-        this.currentPlace.adress = place.adress || this.currentPlace.adress;
-        this.currentPlace.coords = place.coords || this.currentPlace.coords;
-        this.uibModalInstance.close(this.currentPlace);
+            this.uibModalInstance.close(this.place);
     }
 
     cancel () {

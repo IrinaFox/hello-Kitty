@@ -51,14 +51,14 @@ function addPlace (place) {
   placeId = String(idCounter);
   place.id = placeId;
   places.push(place);
-  
+
   return place;
 }
 
 function changePlace (id, data) {
     var item = findId(places, id),
         placeData = JSON.parse(data);
-    
+
     places.splice(item, 1, placeData);
     return JSON.stringify(placeData);
 }
@@ -73,7 +73,7 @@ function getParticipants () {
 function deleteParticipant (id) {
 	var numberId = Number(id),
 		number;
-		
+
   participants.forEach(function(item, index){
     if (item.id === numberId){
       number = index;
@@ -87,14 +87,14 @@ function addPerson(person) {
   var personJSON = JSON.parse(person);
 		personJSON.id = newIndex(participants);
 		participants.push(personJSON);
-		
+
   return JSON.stringify(personJSON);
 }
 
 function changeParticipant(id, partisipant) {
 
   var newPartisipant = JSON.parse(partisipant),
-      numberId = Number(id),      
+      numberId = Number(id),
       changedParticipant = findParticipant(participants, numberId);
       changedParticipant.name = newPartisipant.name;
       changedParticipant.lastname = newPartisipant.lastname;
@@ -166,7 +166,7 @@ function findId (collection, id) {
     if(id === item.id) {
       findedItem = i;
     }
-  })
+  });
   return findedItem;
 }
 
@@ -179,7 +179,6 @@ function getEvents (categoryID) {
     return JSON.stringify(eventsOfCategory);
 }
 
-exports.findId = findId;
 exports.getCategories = getCategories;
 exports.deleteCategory = deleteCategory;
 exports.addCategory = addCategory;
