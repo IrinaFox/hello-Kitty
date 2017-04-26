@@ -10,7 +10,7 @@
       <th>edit</th>
       <th>remove</th>
     </tr>
-    <tr ng-repeat="event in events.events | filter:multiSearch track by event.id">
+    <tr ng-repeat="event in events.events | filter:query track by event.id">
       <td>{{event.name}}</td>
       <td>{{event.place}}</td>
       <td>{{event.description}}</td>

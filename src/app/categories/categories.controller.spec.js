@@ -12,9 +12,4 @@ describe('CategoriesController', () => {
         $http.get('/categories');
         expect(controller.categoriesList).toEqual(undefined);
     }));
-
-    it('the test number must be 10', () => {
-        controller.onlyForTest();
-        expect(controller.testNumber).toEqual(jasmine.any(Number));
-    });
 });

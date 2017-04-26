@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr class = "active"
-                    ng-repeat = "place in places.places | filter:multiSearch track by place.id">
+                    ng-repeat = "place in places.places | filter:query track by place.id">
                     <td>{{$index + 1}}</td>
                     <td>{{place.name}}</td>
                     <td>{{place.capacity}}</td>
