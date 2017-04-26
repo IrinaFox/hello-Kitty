@@ -1,21 +1,21 @@
 [
     {
         "name": "Web UI",
-        "id": "0"
-    },
-
-    {
-        "name": "Python",
         "id": "1"
     },
 
     {
-        "name": "Database",
+        "name": "Python",
         "id": "2"
     },
 
     {
-        "name": "Manual Quality",
+        "name": "Database",
         "id": "3"
+    },
+
+    {
+        "name": "Manual Quality",
+        "id": "4"
     }
 ]

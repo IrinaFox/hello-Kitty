@@ -15,8 +15,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class = "active" 
-                    ng-repeat = "place in places.currentPage track by place.id">
+                <tr class = "active"
+                    ng-repeat = "place in places.currentPage | filter:query track by place.id">
                     <td>{{$index + 1}}</td>
                     <td>{{place.name}}</td>
                     <td>{{place.capacity}}</td>
@@ -28,8 +28,8 @@
                             ng-click = "places.openEditForm('md', place)">Edit</button>
                     </td>
                     <td>
-                        <button type = "button" 
-                            ng-click = "places.removePlace(place.id)" 
+                        <button type = "button"
+                            ng-click = "places.removePlace(place.id)"
                             class = "btn btn-sm btn-danger">
                                 <i class="glyphicon glyphicon-remove-circle"></i>
                         </button>
@@ -39,7 +39,8 @@
         </table>
     </div>
 </div>
+
 <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="places.pageChanged()"></ul>
 
-<button class = "btn btn-info" 
+<button class = "btn btn-info"
     ng-click="places.openAddForm('md')">Add Place</button>

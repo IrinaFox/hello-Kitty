@@ -8,7 +8,7 @@
                 <td></td>
         </thead>
         <tbody>
-            <tr ng-repeat="participant in participants.participantsList">
+            <tr ng-repeat="participant in participants.participantsList | filter:query">
                 <td>{{participant.name}}</td>
                 <td>{{participant.lastname}}</td>
                 <td><button class="btn-info" ng-click="participants.editPerson(participant)">Edit</button></td>
