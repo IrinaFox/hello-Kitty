@@ -1,7 +1,6 @@
 export class PlacesController {
     constructor ($http, $uibModal) {
         'ngInject';
-
         this.http = $http;
         this.modal = $uibModal;
                 
@@ -51,7 +50,7 @@ export class PlacesController {
             });
 
         modalInstance.result.then((currentPlace) => {
-            let id = place.id;
+            const id = place.id;
             
             this.http.put('/places/' + id, currentPlace)
             .then(() => {

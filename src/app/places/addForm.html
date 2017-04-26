@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div class="modal-body placeForm">
     <form name = "placeForm" 
          class = "form-horizontal"
          novalidate>
@@ -12,9 +12,11 @@
 		            ng-maxlength = "20"
 		            placeholder = "Name"
 		            ng-required = "true">
-		        <p ng-show = "placeForm.name.$error.required && placeForm.name.$touched">
+		        <p class = "error"
+		            ng-show = "placeForm.name.$error.required && placeForm.name.$touched">
                 You must fill out the name of organization.</p>
-                <p ng-show = "placeForm.name.$error.maxlength">
+                <p class = "error"
+                    ng-show = "placeForm.name.$error.maxlength">
                 not more than 20 characters</p>
 		    </div>
 	    </div>
@@ -27,11 +29,17 @@
 		            class = "form-control"
 		            ng-model = "$ctrl.place.capacity"
 		            placeholder = "Capacity"
+		            ng-pattern = "/^[1-9]/"
 		            ng-required = "true">
-		        <p ng-show = "placeForm.capacity.$error.required && placeForm.capacity.$touched">
+		        <p class = "error"
+		            ng-show = "placeForm.capacity.$error.required && placeForm.capacity.$touched">
                 You must fill out the number of seats (not more than 1000).</p>
-                <p ng-show = "placeForm.capacity.$error.max">
+                <p class = "error"
+                    ng-show = "placeForm.capacity.$error.max">
                 not more than 1000.</p>
+                <p class = "error"
+                    ng-show = "placeForm.capacity.$error.pattern">
+                only positive numbers</p>
 		    </div>
 	    </div>
 	    <div class = "form-group">
@@ -43,7 +51,8 @@
 		            ng-model = "$ctrl.place.adress"
 		            placeholder= "Adress"
 		            ng-required = "true">
-		        <p ng-show = "placeForm.adress.$invalid && placeForm.adress.$touched">
+		        <p class = "error"
+		            ng-show = "placeForm.adress.$invalid && placeForm.adress.$touched">
                 You must fill out adress.</p>
 		    </div>
 	    </div>
@@ -57,9 +66,11 @@
 		            ng-model = "$ctrl.place.coords"
 		            placeholder = "Coords"
 		            ng-required = "true">
-		        <p ng-show = "placeForm.coords.$error.required && placeForm.coords.$touched">
+		        <p class = "error"
+		            ng-show = "placeForm.coords.$error.required && placeForm.coords.$touched">
                 You must fill out this field.</p>
-                <p ng-show = "placeForm.coords.$error.maxlength">
+                <p class = "error"
+                    ng-show = "placeForm.coords.$error.maxlength">
                 not more than 50 characters.</p>
 		    </div>
 	    </div>
