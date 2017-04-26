@@ -3,10 +3,10 @@ export class ParticipantsController {
     'ngInject';
 
     this.http = $http;
-
     this.modal = $uibModal;
-
     this.getParticipants();
+    this.newParticipant = {};
+    //this.orderProp = 'name'
   }
 
     getParticipants () {
@@ -19,16 +19,17 @@ export class ParticipantsController {
     editPerson (participant) {
         let currentParticipant = participant,
             modalInstance = this.modal.open({
-            templateUrl: 'app/participants/createForm.html',
+            templateUrl: 'app/participants/UnicForm.html',
             controller: 'ModalWindowCtrl',
             controllerAs: '$modal',
-            size: 'lg'
+            size: 'lg',
+            resolve: {currentParticipant: () => participant}
         });
 
-        modalInstance.result.then((participant) => {
-         let id = currentParticipant.id;
-
-            this.http.put('/participants/' + id, participant)
+        modalInstance.result.then((currentParticipant) => {
+            var id = participant.id;
+            
+            this.http.put('/participants/' + id, currentParticipant)
             .then(() => {
                 this.getParticipants();
             });
@@ -37,10 +38,11 @@ export class ParticipantsController {
 
     newPerson () {
         let modalWindow = this.modal.open({
-            templateUrl: 'app/participants/createForm.html',
+            templateUrl: 'app/participants/UnicForm.html',
             controller: 'ModalWindowCtrl',
             controllerAs: '$modal',
-            size: 'lg'
+            size: 'lg',
+            resolve: {currentParticipant: () => this.newParticipant}
         });
 
         modalWindow.result.then((participant) => {
@@ -51,7 +53,6 @@ export class ParticipantsController {
             });
         })
     }
-
     removePerson (id) {
 
      this.http.delete('/participants/'+id)
