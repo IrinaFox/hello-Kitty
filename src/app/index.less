@@ -11,6 +11,7 @@
  */
 @navbar-inverse-link-color: #5AADBB;
 @icon-font-path: '../../bootstrap/fonts/';
+@most-bright-blue: #B5FDFF;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -25,6 +26,57 @@
   img.pull-right {
     width: 50px;
   }
+}
+
+body {
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(181, 253, 255, 0.78));
+}
+
+a {
+  color: white;
+  font-weight:900;
+  font-size: 22pt;
+}
+
+li:hover {
+  background-color: @most-bright-blue;
+  font-size: 22pt;
+}
+
+li {
+  text-decoration: none;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.menu {
+  background-image: -webkit-linear-gradient(top, rgba(92, 192, 222, 0.58), rgba(13, 120, 222, 0.71));
+  height: 70px;
+  width: 100%;
+  float: left;
+  margin: 0;
+  list-style: none;
+  color: white;
+  padding: 10px;
+  font-family: "Roboto Mono", Menlo, monospace;
+}
+
+.categoriesButton {
+  float: right;
+  margin-left: 2%;
+  text-align: center;
+}
+
+.header {
+  text-shadow: 20px -10px 0 rgba(13, 216, 255, 0.33), 7em -3em 9em #40e9ff;
+  font-weight:800;
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #0c076d;
+}
+
+.allInfoButtons {
+  background-image: -webkit-linear-gradient(top, rgba(60, 113, 131, 0), rgba(11, 122, 255, 0.71));
 }
 
 /**
