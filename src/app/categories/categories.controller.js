@@ -16,9 +16,6 @@ export class CategoriesController {
             .then((response) => {
                 this.categoriesList = response.data;
             })
-            .catch(() => {
-                this.scope.status = 'Failed...';
-          });
     }
 
     openCreationForm () {
