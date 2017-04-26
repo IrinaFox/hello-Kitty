@@ -9,6 +9,7 @@
       <th>Feedbacks</th>
       <th>edit</th>
       <th>remove</th>
+      <th>show more</th>
     </tr>
     <tr ng-repeat="event in events.events track by event.id">
       <td>{{event.name}}</td>
@@ -29,6 +30,10 @@
       <td>
         <button ng-click="events.remove( {{event}} ) 
                 class="close">&times;</button>
+      </td>
+<td>
+        <button class="btn btn-info" ng-click="event.showMore(event.id)" >
+        Event</button>
       </td>
     </tr>
   </tbody>

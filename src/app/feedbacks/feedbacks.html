@@ -2,6 +2,7 @@
     <tbody>
         <caption>Feedbacks</caption>
             <tr>
+                <th>№</th>
                 <th>Raiting</th>
                 <th>Comment</th>
                 <th>Author</th>
@@ -9,11 +10,12 @@
                 <th>del</th>
             </tr>
             <tr class="active" ng-repeat="feedback in feedbacks.feedbacks track by $index ">
+                <td>{{$index + 1}}</td>
                 <td>{{feedback.raiting}}</td>
                 <td>{{feedback.comment}}</td>
                 <td>{{feedback.author}}</td>
                 <td>
-                    <button class="btn btn-default" ng-click="feedbacks.openEdituibModal(feedback)">Edit </button>
+                    <button class="btn btn-default" ng-click="feedbacks.openEdituibModal(feedback)"><span class="glyphicon glyphicon-pencil"> </button>
                 </td>
                
                 <td>
