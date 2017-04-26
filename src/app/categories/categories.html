@@ -1,8 +1,8 @@
 <div class="page-header">
-    <h1 class="header"> <span class="glyphicon glyphicon-list-alt"></span> Organizer "KittyEvents"</h1>
+    <h1> <span class="glyphicon glyphicon-list-alt"></span> Organizer "KittyEvents"</h1>
   </div>
   <div class="container-fluid">
-    <ul class="nav-pills menu">
+    <ul class="nav nav-pills">
       <li class="active">
         <a ui-sref=".events('all')"
            class="navbar-brand">All</a>
@@ -13,12 +13,12 @@
         </a>
       </li>
       <li>
-        <button class="btn btn-default btn-lg categoriesButton"
+        <button class="btn btn-default btn-lg"
                 ng-click="categories.openCreationForm()">+</button>
       </li>
       <li>
         <button ng-click="categories.openEditionForm()"
-                class="btn btn-default btn-lg categoriesButton"><span class="glyphicon glyphicon-pencil"></span></button>
+                class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span></button>
       </li>
     </ul>
 </div>
@@ -27,7 +27,7 @@
 <div ui-view></div>
 
 <div class="nav col-sm-10">
-  <a class="btn btn-info allInfoButtons" ui-sref=".places">All places</a>
-  <a class="btn btn-info allInfoButtons" ui-sref=".participants">All participants</a>
-  <a class="btn btn-info allInfoButtons" ui-sref=".feedbacks">All feedbacks</a>
+  <a class="btn btn-info" ui-sref=".places">All places</a>
+  <a class="btn btn-info" ui-sref=".participants">All participants</a>
+  <a class="btn btn-info" ui-sref=".feedbacks">All feedbacks</a>
 </div>
