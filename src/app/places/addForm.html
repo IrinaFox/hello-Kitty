@@ -1,4 +1,4 @@
-<div class="modal-body placeForm">
+<div class = "modal-body placeForm">
     <form name = "placeForm" 
          class = "form-horizontal"
          novalidate>
@@ -23,8 +23,8 @@
 	    <div class = "form-group">
 		    <label class = "col-sm-2 control-label">Capacity</label>
 		    <div class = "col-sm-10">
-		        <input type="number" 
-		            max="1000"
+		        <input type = "number" 
+		            max = "1000"
 		            name = "capacity"
 		            class = "form-control"
 		            ng-model = "$ctrl.place.capacity"
@@ -49,7 +49,7 @@
 		            name = "adress"
 		            class = "form-control"
 		            ng-model = "$ctrl.place.adress"
-		            placeholder= "Adress"
+		            placeholder = "Adress"
 		            ng-required = "true">
 		        <p class = "error"
 		            ng-show = "placeForm.adress.$invalid && placeForm.adress.$touched">
@@ -79,9 +79,9 @@
 <div class="modal-footer">
  <button type = "submit" 
         class = "btn btn-default"
-        ng-disabled="placeForm. $invalid"
+        ng-disabled = "placeForm. $invalid"
         ng-click = "$ctrl.ok(place)">Ok</button>
-    <button class="btn btn-warning" 
+    <button class = "btn btn-warning" 
         type="button" 
-        ng-click="$ctrl.cancel()">Cancel</button>  
+        ng-click = "$ctrl.cancel()">Cancel</button>  
 </div>

@@ -1,9 +1,9 @@
 export class PlacesController {
-    constructor ($http, $uibModal) {
+    constructor ($http, $uibModal, $scope) {
         'ngInject';
         this.http = $http;
         this.modal = $uibModal;
-                
+        this.scope = $scope;
         this.getPlacesList();
     }
 
@@ -11,6 +11,17 @@ export class PlacesController {
         this.http.get('/places')
             .then((response) => {
                 this.places = response.data;
+
+                this.scope.totalItems = this.places.length;
+                this.scope.itemsPerPage = 3;
+                this.scope.currentPage = 1;
+
+                this.pageChanged = function() {
+                    let firstPlace = (this.scope.currentPage - 1) * this.scope.itemsPerPage,
+                        lastPlace = this.scope.currentPage * this.scope.itemsPerPage;
+                    this.currentPage = this.places.slice(firstPlace, lastPlace);
+                };
+                this.pageChanged();               
             });
     }
 
