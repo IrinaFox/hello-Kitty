@@ -4,48 +4,64 @@
     "name": "Bill",
     "lastname": "Gates",
     "company": "Mictosoft",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "age": "60",
+    "direction": "Filantrop",
+    "info":" American business magnate, investor, author, and philanthropist"
 }, {
     "id": 1,
     "name": "Mark",
     "lastname": "Zuckerberg",
     "company": "Facebook",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "age": "30",
+    "direction": "CEO",
+    "info":" CEO Facebook"
 }, {
     "id": 2,
     "name": "Sergey",
     "lastname": "Brin",
+    "age": "50",
     "company": "Google",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "direction": "CEO",
+    "info":"CEO  Google"
 }, {
     "id": 3,
     "name": "Larry",
     "lastname": "Page",
+    "age": "45",
     "company": "Google",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "direction": "CEO",
+    "info":"CEO  Google"
 }, {
     "id": 4,
     "name": "Jan",
     "lastname": "Koum",
     "company": "Wat's up",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "age": "58",
+    "direction": "CEO",
+    "info":" Ukrainian-American businessman. What's up founder!"
 }, {
     "id": 5,
     "name": "Elon",
     "lastname": "Musk",
-    "company": "PayPal, SpaceX, Tesla Inc.",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "company": "Tesla",
+    "age": "42",
+    "direction": "CEO",
+    "info":" Genius of our time. Have projects in Space, IT, Vehicle business"
 }, {
     "id": 6,
     "name": "Luke",
     "lastname": "Nosek",
     "company": "PayPal",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "age": "48",
+    "direction": "Architect",
+    "info":"CEO  PayPal"
 }, {
     "id": 7,
     "name": "Stoyan ",
     "lastname": "Stefanov",
     "company": "Yahoo",
-    "info":" American business magnate, investor, author, and philanthropist.[1][2] In 1975, Gates and Paul Allen co-founded Microsoft, which became the world's largest PC software company. During his career at Microsoft, Gates held the positions of chairman, CEO and chief software architect, and was the largest individual shareholder until May 2014.[3][a] Gates has authored and co-authored several books."
+    "age": "42",
+    "direction": "Architect",
+    "info":" JS Evangelist"
 }
 ]
