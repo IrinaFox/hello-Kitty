@@ -36,7 +36,7 @@ function browserSyncInit(baseDir, browser) {
   server.middleware = proxyMiddleware(['/participants', '/feedbacks', '/categories', '/places', '/events'], {target: 'http://localhost:8888', changeOrigin: true});
 
   browserSync.instance = browserSync.init({
-    startPath: '/',
+    startPath: '/#/events/',
     server: server,
     browser: browser
   });

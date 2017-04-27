@@ -19,10 +19,11 @@ export class CategoriesController {
     }
 
     openCreationForm () {
-        let modalInstance = this.modal.open({
+        const modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.createForm.html',
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl'
+            controller: 'CategoriesModalWindowController',
+            controllerAs: '$ctrl',
+            resolve: {categoriesList: () => this.categoriesList}
         });
 
         modalInstance.result.then(() => {
@@ -31,18 +32,15 @@ export class CategoriesController {
     }
 
     openEditionForm () {
-        let modalInstance = this.modal.open({
+        const modalInstance = this.modal.open({
             templateUrl: 'app/categories/categories.editForm.html',
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl'
+            controller: 'CategoriesModalWindowController',
+            controllerAs: '$ctrl',
+            resolve: {categoriesList: () => this.categoriesList}
         });
 
         modalInstance.result.then(() => {
             this.loadCategoriesList();
         })
-    }
-
-    filterEvents (buttonName) {
-        this.log.log(buttonName);
     }
 }

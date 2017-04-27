@@ -1,41 +1,87 @@
-<div class="modal-body">
-    <form name = "editPlace" 
-         class = "form-horizontal">
+<div class = "modal-body placeForm">
+    <form name = "placeForm" 
+         class = "form-horizontal"
+         novalidate>
 	    <div class = "form-group">
 		    <label class = "col-sm-2 control-label">Name</label>
 		    <div class = "col-sm-10">
 		        <input type = "text" 
-		             class = "form-control"
-		             ng-model = "place.name"
-		             placeholder= "Name">
+		            name = "name"
+		            class = "form-control"
+		            ng-model = "$ctrl.place.name"
+		            ng-maxlength = "20"
+		            placeholder = "Name"
+		            ng-required = "true">
+		        <p class = "error"
+		            ng-show = "placeForm.name.$error.required && placeForm.name.$touched">
+                You must fill out the name of organization.</p>
+                <p class = "error"
+                    ng-show = "placeForm.name.$error.maxlength">
+                not more than 20 characters</p>
+		    </div>
+	    </div>
+	    <div class = "form-group">
+		    <label class = "col-sm-2 control-label">Capacity</label>
+		    <div class = "col-sm-10">
+		        <input type = "number" 
+		            max = "1000"
+		            name = "capacity"
+		            class = "form-control"
+		            ng-model = "$ctrl.place.capacity"
+		            placeholder = "Capacity"
+		            ng-pattern = "/^[1-9]/"
+		            ng-required = "true">
+		        <p class = "error"
+		            ng-show = "placeForm.capacity.$error.required && placeForm.capacity.$touched">
+                You must fill out the number of seats (not more than 1000).</p>
+                <p class = "error"
+                    ng-show = "placeForm.capacity.$error.max">
+                not more than 1000.</p>
+                <p class = "error"
+                    ng-show = "placeForm.capacity.$error.pattern">
+                only positive numbers</p>
 		    </div>
 	    </div>
 	    <div class = "form-group">
 		    <label class = "col-sm-2 control-label">Adress</label>
 		    <div class = "col-sm-10">
 		        <input type = "text" 
-		             class = "form-control"
-		             ng-model = "place.adress"
-		             placeholder= "Adress">
+		            name = "adress"
+		            class = "form-control"
+		            ng-model = "$ctrl.place.adress"
+		            placeholder = "Adress"
+		            ng-required = "true">
+		        <p class = "error"
+		            ng-show = "placeForm.adress.$invalid && placeForm.adress.$touched">
+                You must fill out adress.</p>
 		    </div>
 	    </div>
 	    <div class = "form-group">
 		    <label class = "col-sm-2 control-label">Coords</label>
 		    <div class = "col-sm-10">
 		        <input type = "text" 
-		             class = "form-control"
-		             ng-model = "place.coords"
-		             placeholder= "Coords">
+		            name = "coords"
+		            ng-maxlength = "50"
+		            class = "form-control"
+		            ng-model = "$ctrl.place.coords"
+		            placeholder = "Coords"
+		            ng-required = "true">
+		        <p class = "error"
+		            ng-show = "placeForm.coords.$error.required && placeForm.coords.$touched">
+                You must fill out this field.</p>
+                <p class = "error"
+                    ng-show = "placeForm.coords.$error.maxlength">
+                not more than 50 characters.</p>
 		    </div>
 	    </div>
 	</form>
 </div>
 <div class="modal-footer">
-    <button type = "submit" 
+ <button type = "submit" 
         class = "btn btn-default"
+        ng-disabled = "placeForm. $invalid"
         ng-click = "$ctrl.ok(place)">Ok</button>
-    <button class="btn btn-warning" 
+    <button class = "btn btn-warning" 
         type="button" 
-        ng-click="$ctrl.cancel()">Cancel</button>    
+        ng-click = "$ctrl.cancel()">Cancel</button>  
 </div>
-

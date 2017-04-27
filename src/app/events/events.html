@@ -1,16 +1,39 @@
 <table class="table table-hover">
   <tbody>
+    <caption>All events</caption>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Place</th>
+      <th>Description</th>
       <th>Participants</th>
+      <th>Feedbacks</th>
+      <th>edit</th>
+      <th>remove</th>
     </tr>
-    <tr class="active" ng-repeat="event in events.events">
+    <tr ng-repeat="event in events.events | filter:query track by event.id">
       <td>{{event.name}}</td>
-      <td>{{event.description}}</td>
       <td>{{event.place}}</td>
-      <td>{{event.participants}}</td>
+      <td>{{event.description}}</td>
+      <td>
+        <a ui-sref="participants({eventID: {{event.id}} })"
+           class="btn btn-info">Participants</a>
+      </td>
+      <td>
+        <a ui-sref="feedbacks({eventID: {{event.id}} })"
+           class="btn btn-info">Feedbacks</a>
+      </td>
+      <td>
+        <button ng-click="events.openModalForm( {{event}} )"
+                class="btn btn-default btn-lg">Edit</button>
+      </td>
+      <td>
+        <button ng-click="events.remove( {{event}} )
+                class="close">&times;</button>
+      </td>
     </tr>
   </tbody>
+  <tfoot>
+    <a ng-click="events.openModalForm()"
+       class="btn btn-info">Add event</a>
+  </tfoot>
 </table>

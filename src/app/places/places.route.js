@@ -5,7 +5,7 @@ export function routerPlaces ($stateProvider) {
     	url: 'places',
     	templateUrl: 'app/places/places.html',
     	controller: 'PlacesController',
-        controllerAs: 'places'
+      controllerAs: 'places'
     });
 }
 
