@@ -1,43 +1,52 @@
-div.caregoryEdit {
-	margin-right: 5px;
-	margin-top: 5px;
+@color-nav-a: #fff;
+@color-error: red;
+@color-shadow: #ccc;
+
+ul.navbar-nav > li > a.category:hover, 
+ul.navbar-nav > li > a.category:active {
+	color: @color-nav-a;
 }
 
-form.searchCategory {
-	margin-left: 33px;
-}
 ul.submenu {
 	margin-left: 310px;
-}
-
-.navbar-nav > li > a.category:hover, 
-.navbar-nav > li > a.category:active {
-	color: #fff;
+	top: 0;
 }
 
 form.searchCategory {
 	position: relative;
+	margin-left: 33px;
+
+	span.glyphicon-search {
+	    position: absolute;
+        right: 15px;
+    
+        padding: 6px;
+        border-left: 1px solid @color-shadow;
+
+        color: @color-shadow;
+        font-size: 20px;    
+    }
 }
 
-form.searchCategory span.glyphicon-search {
-    position: absolute;
-    font-size: 20px;
-    color: #ccc;
-    right: 15px;
-    padding: 6px;
-    border-left: 1px solid #ccc;
+div.categoryEdit {
+	margin: 5px 5px 0 0;
 }
 
 div.tableAll {
-	margin-top: 50px;
 	position: relative;
-}
-.addForm p.error {
-	color: red;
+	margin-top: 50px;
+
+	button.add.btn.btn-default {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
 }
 
-div.tableAll button.add.btn.btn-default {
-    position: absolute;
-    top: 30px;
-    right: 15px;
+table caption {
+	font-size: 30px;
+}
+
+.addForm p.error {
+	color: @color-error;
 }
