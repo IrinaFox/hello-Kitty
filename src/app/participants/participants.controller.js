@@ -1,10 +1,11 @@
 export class ParticipantsController {
-  constructor($http,  $uibModal) {
+  constructor($http,  $uibModal, $scope) {
     'ngInject';
 
     this.http = $http;
     this.modal = $uibModal;
     this.getParticipants();
+    this.scope = $scope;
     this.newParticipant = {};
     //this.orderProp = 'name'
   }
@@ -14,7 +15,8 @@ export class ParticipantsController {
         .then(response => {
           this.participantsList = response.data;
         });
-    }
+        
+    }    
 
     editPerson (participant) {
         let currentParticipant = participant,
@@ -22,12 +24,12 @@ export class ParticipantsController {
             templateUrl: 'app/participants/UnicForm.html',
             controller: 'ModalWindowCtrl',
             controllerAs: '$modal',
-            size: 'lg',
+            size: 'md',
             resolve: {currentParticipant: () => participant}
         });
 
         modalInstance.result.then((currentParticipant) => {
-            var id = participant.id;
+            let id = participant.id;
             
             this.http.put('/participants/' + id, currentParticipant)
             .then(() => {
@@ -41,7 +43,7 @@ export class ParticipantsController {
             templateUrl: 'app/participants/UnicForm.html',
             controller: 'ModalWindowCtrl',
             controllerAs: '$modal',
-            size: 'lg',
+            size: 'md',
             resolve: {currentParticipant: () => this.newParticipant}
         });
 

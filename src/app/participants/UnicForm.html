@@ -1,22 +1,40 @@
-<div class="modal-body">
-    <form name = "editPlace" 
+<div class="modal-body participantForm">
+    <form name = "participantForm" 
          class = "form-horizontal">
         <div class = "form-group">
             <label class = "col-sm-2 control-label">Name</label>
             <div class = "col-sm-10">
-                <input type = "text" 
+                 <input type = "text"
+                     name = "name" 
                      class = "form-control"
                      ng-model = "participant.name"
-                     placeholder= "Name">
+                     ng-maxlength = "15"
+                     placeholder= "Name"
+                     ng-required = "true">
+            <p class = "error"
+                ng-show = "participantForm.name.$error.required && participantForm.name.$touched">
+             Write name please</p>
+             <p class = "error"
+                 ng-show = "participantForm.name.$error.maxlength">
+             Max length 15 characters</p>
             </div>
         </div>
         <div class = "form-group">
             <label class = "col-sm-2 control-label">LastName</label>
             <div class = "col-sm-10">
-                <input type = "text" 
+                 <input type = "text"
+                     name = "lastname" 
                      class = "form-control"
                      ng-model = "participant.lastname"
-                     placeholder= "LastName">
+                     ng-maxlength = "15"
+                     placeholder= "LastName"
+                     ng-required = "true">
+            <p class = "error"
+                ng-show = "participantForm.lastname.$error.required && participantForm.lastname.$touched">
+             Write LastName please</p>
+             <p class = "error"
+                 ng-show = "participantForm.lastname.$error.maxlength">
+             Max length 15 characters</p>  
             </div>
         </div>
     </form>

@@ -18,20 +18,18 @@
                 <td>{{participant.company}}</td>
                 <td>{{participant.direction}}</td>
                 <td>{{participant.age}}</td>
-                <td><button class="btn-info" ng-click="participants.editPerson(participant)">Edit</button></td>
-                <td><button class="btn-danger" ng-click="participants.removePerson(participant.id)">Delete</button></td>
+                <td><button class="btn-info" ng-click="participants.editPerson(participant)"><span class="glyphicon glyphicon-pencil"></button></td>
+                <td><button class="btn-danger" ng-click="participants.removePerson(participant.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
             </tr>
         </tbody>
     </table>
-    <label>Search Participant:
-    <input type="text" id="query" ng-model="query"/>
-    </label>
     <label class="formgroup">Order by:
       <select ng-model="participants.orderProp">
         <option value="name">Name</option>
         <option value="lastname">LastName</option>
         <option value="company">Company</option>
-        <option value="age">Age</option><option value="direction">Direction</option>
+        <option value="age">Age</option>
+        <option value="direction">Direction</option>
       </select>
     </label>
     <hr/>
