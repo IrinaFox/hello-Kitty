@@ -17,14 +17,14 @@ describe('CategoriesModalWindowController', () => {
       }
     }));
 
-    it('should save category', () => {
+    it('should send request PUT to the server', () => {
         $httpBackend.expectPUT('/categories/1').respond();
         let controller = createController();
         controller.save({name: 'name', id: 1});
         $httpBackend.flush();
     });
 
-    it('should delete category', () => {
+    it('should send request DELETE to the server', () => {
         $httpBackend.expectDELETE('/categories/1').respond();
         let controller = createController();
         controller.destroy({name: 'name', id: 1});
