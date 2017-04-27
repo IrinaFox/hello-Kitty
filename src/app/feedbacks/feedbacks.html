@@ -2,6 +2,7 @@
     <tbody>
         <caption>Feedbacks</caption>
             <tr>
+
                 <th>№</th>
                 <th>Raiting</th>
                 <th>Comment</th>
@@ -9,6 +10,7 @@
                 <th>edit</th>
                 <th>del</th>
             </tr>
+            <button class="btn btn-info" ng-click="feedbacks.openAdduibModal()">Add feedback </button>
             <tr class="active" ng-repeat="feedback in feedbacks.feedbacks | filter:query track by feedback.id">
                 <td>{{$index + 1}}</td>
                 <td>{{feedback.raiting}}</td>
@@ -19,11 +21,12 @@
                 </td>
 
                 <td>
-                    <button type="button" class="close"
-                    ng-click="feedbacks.deleteFeedback(feedbacks.id)"
-                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class = "btn btn-sm btn-danger"    
+                    ng-click="feedbacks.deleteFeedback(feedbacks.id)">
+                     <i class="glyphicon glyphicon-trash"></i>
+                    </button>
                 </td>
             </tr>
     </tbody>
 </table>
-<button class="btn btn-info" ng-click="feedbacks.openAdduibModal()">Add </button>
+
