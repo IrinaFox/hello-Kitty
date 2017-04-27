@@ -1,37 +1,50 @@
-<div class="page-header">
-    <h1> <span class="glyphicon glyphicon-list-alt"></span> Organizer "KittyEvents"</h1>
+<div class = "container">
+  <div class="page-header">
+    <h1> <i class="glyphicon glyphicon-list-alt"></i> Organizer "KittyEvents"</h1>
   </div>
-  <div class="container-fluid">
-    <ul class="nav nav-pills navbar-inverse">
-      <li class="active">
-        <a ui-sref=".events('all')"
-           class="navbar-brand">All</a>
-      </li>
-      <li ng-repeat="category in categories.categoriesList track by category.id">
-        <a ui-sref=".events({category: {{category.id}} })"
-           class="navbar-brand">{{category.name}}
-        </a>
-      </li>
-      <li>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse row">
+      <ul class="nav navbar-nav navbar-inverse col-sm-10">
+        <li class="active">
+          <a ui-sref=".events('all')"
+             class="navbar-brand">All</a>
+        </li>
+        <li ng-repeat="category in categories.categoriesList track by category.id">
+          <a ui-sref=".events({category: {{category.id}} })"
+             class="navbar-brand category">{{category.name}}
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-right categoryEdit">
         <a class="btn btn-default btn-lg"
-                ng-click="categories.openCreationForm()">+</a>
-      </li>
-      <li>
+          ng-click="categories.openCreationForm()">+</a>        
         <a ng-click="categories.openEditionForm()"
-                class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span></a>
-      </li>
-    </ul>
-</div>
-<br>
+          class="btn btn-default btn-lg">
+          <i class="glyphicon glyphicon-pencil"></i></a>
+      </div>
+        
+      <br>
 
-<label><span class="glyphicon glyphicon-search"></span>
-    <input type="text" id="query" ng-model="query"/>
-</label>
+      <form class="navbar-form navbar-left searchCategory" 
+        role="search">
+          <div class="form-group">
+            <i class="glyphicon glyphicon-search"></i>
+            <input type="text" 
+              class="form-control" 
+              placeholder="Search" 
+              id="query" 
+              ng-model="query"/>
+          </div>
+      </form>
 
-<div ui-view></div>
+      <ul class="nav navbar-nav submenu">
+        <a class="navbar-brand" ui-sref=".places">All places</a>
+        <a class="navbar-brand" ui-sref=".participants">All participants</a>
+        <a class="navbar-brand" ui-sref=".feedbacks">All feedbacks</a>
+      </ul>
+    </div>
+  </nav>
 
-<div class="nav col-sm-10">
-  <a class="btn btn-info" ui-sref=".places">All places</a>
-  <a class="btn btn-info" ui-sref=".participants">All participants</a>
-  <a class="btn btn-info" ui-sref=".feedbacks">All feedbacks</a>
+  <div ui-view></div>
+
 </div>
