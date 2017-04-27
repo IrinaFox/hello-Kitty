@@ -1,13 +1,22 @@
 <div class="modal-body">
-    <form name = "add-editFedback" 
-         class = "form-horizontal">
-	    <div class = "form-group>
+    <form name = "addeditFedback" 
+         class = "form-horizontal" novalidate="">
+	    <div class = "form-group">
 		<label class = "col-sm-2 control-label">Raiting</label>
 		    <div class = "col-sm-10">
-		        <input type = "text" 
+		        <input type = "number" 
 					class = "form-control"
+					max="9999" 
 		            name = "raiting"
-		            ng-model = "modal.feedback.raiting">
+		            ng-model = "modal.feedback.raiting"
+		            ng-pattern="/^[1-9]/" 
+		            ng-required="true">
+		    <p class="error" ng-show="addeditFedback.raiting.$error.required &amp;&amp; addeditFedback.raiting.$touched">
+                You must fill out the feedback raiting.</p>
+                <p class="error" ng-show="addeditFedback.raiting.$error.pattern">
+                Only positive.</p>
+                <p class="error" ng-show="addeditFedback.raiting.$error.max">
+                The maximum value should be 9999.</p>
 	    </div>
 	    </div>
 	    <div class = "form-group">
@@ -16,7 +25,15 @@
 		         <input type = "text" 
 					class = "form-control"
 		            name = "comment"
-		            ng-model = "modal.feedback.comment">
+		            ng-model = "modal.feedback.comment"
+		            ng-maxlength="256" 
+		            ng-required="true">
+		       <p class="error" ng-show="addeditFedback.comment.$error.required &amp;&amp; addeditFedback.comment.$touched">
+                You should write your short feedback about ours event(please be 
+polite).</p>
+                <p class="error" ng-show="addeditFedback.comment.$error.maxlength">
+                You have to use not more than 256 characters.</p>
+
 		    </div>
 	    </div>
 	    <div class = "form-group">
@@ -25,7 +42,13 @@
 		        <input type = "text" 
 					class = "form-control"
 		            name = "author"
-		            ng-model = "modal.feedback.author">
+		            ng-model = "modal.feedback.author"
+		            ng-maxlength="64" 
+		            ng-required="true">
+		<p class="error" ng-show="addeditFedback.author.$error.required &amp;&amp; add-editFedback.author.$touched">
+                You must fill out this field.</p>
+                <p class="error" ng-show="addeditFedback.author.$error.maxlength">
+                You have to use not more then 64 characters.</p>
 		    </div>
 	    </div>
 	</form>
@@ -33,7 +56,7 @@
 
 <div class="modal-footer">
     <button class="btn btn-default"
-        type="submit"
+        type="submit" ng-disabled="addeditFedback.$invalid"
         ng-click="modal.save(feedback)">Save 
             </button>
     <button class="btn btn-warning" 

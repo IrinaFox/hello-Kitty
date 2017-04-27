@@ -1,25 +1,28 @@
-<table class="table table-hover">
-    <tbody>
-        <caption>Feedbacks</caption>
+  <div class="row tableAll">
+    <div class="col-sm-12">
+  <button class="btn btn-default add" ng-click="feedbacks.openAdduibModal()">Add feedback 
+  </button>
+  <table class="table table-hover">
+        <caption>All feedbacks</caption>
+        <thead>
             <tr>
-
-                <th>№</th>
                 <th>Raiting</th>
                 <th>Comment</th>
                 <th>Author</th>
                 <th>edit</th>
-                <th>del</th>
+                <th>remove</th>
             </tr>
-            <button class="btn btn-info" ng-click="feedbacks.openAdduibModal()">Add feedback </button>
-            <tr class="active" ng-repeat="feedback in feedbacks.feedbacks | filter:query track by feedback.id">
-                <td>{{$index + 1}}</td>
+            </thead>
+            <tbody>
+            <tr class="active" ng-repeat="feedback in feedbacks.currentPage | filter:query track by feedback.id">
                 <td>{{feedback.raiting}}</td>
                 <td>{{feedback.comment}}</td>
                 <td>{{feedback.author}}</td>
                 <td>
-                    <button class="btn btn-default" ng-click="feedbacks.openEdituibModal(feedback)"><span class="glyphicon glyphicon-pencil"> </button>
+                    <a class="btn btn-sm btn-default" ng-click="feedbacks.openEdituibModal(feedback)">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
                 </td>
-
                 <td>
                     <button type="button" class = "btn btn-sm btn-danger"    
                     ng-click="feedbacks.deleteFeedback(feedbacks.id)">
@@ -29,4 +32,10 @@
             </tr>
     </tbody>
 </table>
-
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <ul uib-pagination="" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="feedbacks.pageChanged()"></ul>
+    </div>
+</div>

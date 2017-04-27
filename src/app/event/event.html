@@ -1,11 +1,60 @@
 <form action="" class="form-horizontal">
 <div class="form-group">
-<p>{{event.name}}</p>
-<p>{{event.place}}</p>
-<p>{{event.description}}</p>
-<p>{{event.participants}}</p>
-<p>{{event.feedbacks}}</p>
-</ul>
-<button class="btn btn-warning">Close</button>
-<div>
-</form>
+<div class="modal-body">
+    <form name = "show-event" 
+         class = "form-horizontal">
+	    <div class = "form-group>
+		<label class = "col-sm-2 control-label">Name</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+					class = "form-control"
+		            name = "nane"
+		            ng-model = "$modal.event.name">
+	    </div>
+	    </div>
+	    <div class = "form-group">
+		<label class = "col-sm-2 control-label">Place</label>
+		    <div class = "col-sm-10">
+		         <input type = "text" 
+					class = "form-control"
+		            name = "place"
+		            ng-model = "$modal.event.place">
+		    </div>
+	    </div>
+	    <div class = "form-group">
+		<label class = "col-sm-2 control-label">Description</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+					class = "form-control"
+		            name = "description"
+		            ng-model = "Form.event.description">
+		    </div>
+		    <div class = "form-group">
+		<label class = "col-sm-2 control-label">Participants</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+					class = "form-control"
+		            name = "participant"
+		            ng-model = "$modal.participant.name">
+		    </div>
+		    <div class = "form-group">
+		<label class = "col-sm-2 control-label">Feedbacks</label>
+		    <div class = "col-sm-10">
+		        <input type = "text" 
+					class = "form-control"
+		            name = "feedbacks"
+		            ng-model = "$modal.feedbacks.comment">
+		    </div>
+	    </div>
+	</form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-default"
+        type="submit"
+        ng-click="modal.save(event)">Save 
+            </button>
+    <button class="btn btn-warning" 
+        type="button" 
+        ng-click="modal.cancel()">Cancel</button> 
+</div>

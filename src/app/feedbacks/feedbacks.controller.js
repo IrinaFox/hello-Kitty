@@ -12,8 +12,18 @@ export class FeedbacksController {
     getFeedbacks () {
         this.http.get('/feedbacks')
     	    .then((response) => {
-    	    	this.feedbacks = response.data;       
-    	     });
+    	    	this.feedbacks = response.data;  
+                this.scope.totalItems = this.feedbacks.length;
+                this.scope.itemsPerPage = 4;
+                this.scope.currentPage = 1;
+
+                this.pageChanged = function() {
+                    let firstPageFeedbacks = (this.scope.currentPage - 1) * this.scope.itemsPerPage,
+                        lastPageFeedbacks = this.scope.currentPage * this.scope.itemsPerPage;
+                    this.currentPage = this.feedbacks.slice(firstPageFeedbacks, lastPageFeedbacks);
+                };
+                this.pageChanged();               
+            });     
     }; 
 
     deleteFeedback (id) {
