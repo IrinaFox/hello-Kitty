@@ -1,16 +1,15 @@
 export class ParticipantsController {
-  constructor($http,  $uibModal, $scope) {
+  constructor($http,  $uibModal) {
     'ngInject';
 
     this.http = $http;
     this.modal = $uibModal;
     this.getParticipants();
-    this.scope = $scope;
     this.newParticipant = {};
   }
 
-    applyFilter(filter){
-        this.orderProp = filter;
+    applySorting(sortparam){
+        this.orderProp = sortparam;
     }
 
     getParticipants () {

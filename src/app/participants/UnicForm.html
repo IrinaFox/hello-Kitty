@@ -10,10 +10,10 @@
                      ng-model = "participant.name"
                      ng-maxlength = "15"
                      placeholder= "Name"
-                     ng-required = "true">
+                     required = "true">
             <p class = "error"
                 ng-show = "participantForm.name.$error.required && participantForm.name.$touched">
-             Write name please</p>
+             Write Name please</p>
              <p class = "error"
                  ng-show = "participantForm.name.$error.maxlength">
              Max length 15 characters</p>
@@ -28,10 +28,10 @@
                      ng-model = "participant.lastname"
                      ng-maxlength = "15"
                      placeholder= "LastName"
-                     ng-required = "true">
+                     required = "true">
             <p class = "error"
                 ng-show = "participantForm.lastname.$error.required && participantForm.lastname.$touched">
-             Write LastName please</p>
+             Write Lastname please</p>
              <p class = "error"
                  ng-show = "participantForm.lastname.$error.maxlength">
              Max length 15 characters</p>  
