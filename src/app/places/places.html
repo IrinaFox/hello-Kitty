@@ -27,15 +27,14 @@
                     <td>
                         <a class="btn btn-default btn-sm"
                             ng-click = "places.openEditForm('md', place)">
-                            <span class = "glyphicon glyphicon-pencil">
-                            </span>
+                            <i class = "glyphicon glyphicon-pencil"></i>
                         </a>
                     </td>
                     <td>
                         <button type = "button"
                             ng-click = "places.removePlace(place.id)"
                             class = "btn btn-sm btn-danger">
-                                <span class="glyphicon glyphicon-trash"></span>
+                                <i class="glyphicon glyphicon-trash"></i>
                         </button>
                     </td>
                 </tr>
@@ -49,7 +48,6 @@
             total-items="totalItems" 
             items-per-page="itemsPerPage" 
             ng-model="currentPage" 
-            ng-change="places.pageChanged()">
-        </ul>
+            ng-change="places.pageChanged()"></ul>
     </div>
 </div>
