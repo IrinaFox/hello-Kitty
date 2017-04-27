@@ -21,7 +21,7 @@ export class PlacesController {
                         lastPlace = this.scope.currentPage * this.scope.itemsPerPage;
                     this.currentPage = this.places.slice(firstPlace, lastPlace);
                 };
-                this.pageChanged();               
+                this.pageChanged();
             });
     }
 
@@ -42,7 +42,7 @@ export class PlacesController {
                 resolve: {currentPlace: () => newPlace}
             });
 
-        modalInstance.result.then((place) => {   
+        modalInstance.result.then((place) => {
 
             this.http.post('/places', place)
             .then(() => {
@@ -62,7 +62,7 @@ export class PlacesController {
 
         modalInstance.result.then((currentPlace) => {
             const id = place.id;
-            
+
             this.http.put('/places/' + id, currentPlace)
             .then(() => {
                 this.getPlacesList();
