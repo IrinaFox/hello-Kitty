@@ -7,15 +7,17 @@ export class ParticipantsController {
     this.getParticipants();
     this.scope = $scope;
     this.newParticipant = {};
-    //this.orderProp = 'name'
   }
+
+    applyFilter(filter){
+        this.orderProp = filter;
+    }
 
     getParticipants () {
         this.http.get('/participants')
         .then(response => {
           this.participantsList = response.data;
-        });
-        
+        });     
     }    
 
     editPerson (participant) {
