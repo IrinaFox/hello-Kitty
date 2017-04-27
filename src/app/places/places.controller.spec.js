@@ -13,7 +13,7 @@ describe('PlacesController', () => {
         }
     }));
 
-    it('should send request on serve', () => {
+    it('should send request GET /places on serve', () => {
         $httpBackend.expectGET('/places').respond(200, [
             {name:'name'},
             {name:'name'},

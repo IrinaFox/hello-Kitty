@@ -13,7 +13,7 @@ describe('CategoriesController', () => {
         }
     }));
 
-    it('should send request on serve', () => {
+    it('should send request GET /categories on serve', () => {
         $httpBackend.expectGET('/categories').respond();
         let controller = createController();
         $httpBackend.flush();

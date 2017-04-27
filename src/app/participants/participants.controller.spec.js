@@ -13,7 +13,7 @@ describe('ParticipantsController', () => {
         }
     }));
 
-    it('should send request on serve', () => {
+    it('should send request GET /participants on serve', () => {
         $httpBackend.expectGET('/participants').respond(200, [
             {name:'name'},
             {name:'name'},
