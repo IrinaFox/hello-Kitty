@@ -13,7 +13,12 @@ describe('PlacesController', () => {
         }
     }));
 
-    it('should send request GET /places on serve', () => {
+    it('should instantiate the controller properly', function () {
+        let controller = createController();
+        expect(controller).not.toBeUndefined();
+    });
+
+    it('should send request GET /places on server', () => {
         $httpBackend.expectGET('/places').respond(200, [
             {name:'name'},
             {name:'name'},

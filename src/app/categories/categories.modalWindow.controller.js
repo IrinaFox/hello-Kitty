@@ -37,7 +37,7 @@ export class CategoriesModalWindowController {
     }
 
     ok () {
-        this.uibModalInstance.close();
+        this.uibModalInstance.close(true);
     }
 
     cancel () {

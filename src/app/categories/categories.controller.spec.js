@@ -13,6 +13,11 @@ describe('CategoriesController', () => {
         }
     }));
 
+    it('should instantiate the controller properly', function () {
+        let controller = createController();
+        expect(controller).not.toBeUndefined();
+    });
+
     it('should send request GET /categories on serve', () => {
         $httpBackend.expectGET('/categories').respond();
         let controller = createController();

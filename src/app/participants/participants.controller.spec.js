@@ -13,6 +13,11 @@ describe('ParticipantsController', () => {
         }
     }));
 
+    it('should instantiate the controller properly', function () {
+        let controller = createController();
+        expect(controller).not.toBeUndefined();
+    });
+
     it('should send request GET /participants on serve', () => {
         $httpBackend.expectGET('/participants').respond(200, [
             {name:'name'},
