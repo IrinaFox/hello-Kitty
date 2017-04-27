@@ -14,7 +14,7 @@ describe('CategoriesController', () => {
     }));
 
     it('should load categories list from server', () => {
-        $httpBackend.expectGET('/categories').respond(200,{});
+        $httpBackend.expectGET('/categories').respond();
         var controller = createController();
         $httpBackend.flush();
     });
