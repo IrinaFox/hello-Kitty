@@ -5,13 +5,12 @@
 		<label class = "col-sm-2 control-label">Raiting</label>
 		    <div class = "col-sm-10">
 		        <input type = "number" 
-					class = "form-control"
-					max="9999" 
+					class = "form-control" max="9999" 
 		            name = "raiting"
 		            ng-model = "modal.feedback.raiting"
 		            ng-pattern="/^[1-9]/" 
 		            ng-required="true">
-		    <p class="error" ng-show="addEditFeedback.raiting.$error.required &amp;&amp; addEditFeedback.raiting.$touched">
+		        <p class="error" ng-show="addEditFeedback.raiting.$error.required &amp;&amp; addEditFeedback.raiting.$touched">
                 You must fill out the feedback raiting.</p>
                 <p class="error" ng-show="addEditFeedback.raiting.$error.pattern">
                 Only positive.</p>
@@ -29,11 +28,9 @@
 		            ng-maxlength="256" 
 		            ng-required="true">
 		       <p class="error" ng-show="addEditFeedback.comment.$error.required &amp;&amp; addEditFeedback.comment.$touched">
-                You should write your short feedback about ours event(please be 
-polite).</p>
+                You should write your short feedback about ours event(please be polite).</p>
                 <p class="error" ng-show="addEditFeedback.comment.$error.maxlength">
                 You have to use not more than 256 characters.</p>
-
 		    </div>
 	    </div>
 	    <div class = "form-group">
@@ -45,7 +42,7 @@ polite).</p>
 		            ng-model = "modal.feedback.author"
 		            ng-maxlength="64" 
 		            ng-required="true">
-		<p class="error" ng-show="addEditFeedback.author.$error.required &amp;&amp; addEditFeedback.author.$touched">
+		        <p class="error" ng-show="addEditFeedback.author.$error.required &amp;&amp; addEditFeedback.author.$touched">
                 You must fill out this field.</p>
                 <p class="error" ng-show="addEditFeedback.author.$error.maxlength">
                 You have to use not more then 64 characters.</p>
