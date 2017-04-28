@@ -13,6 +13,11 @@ describe('FeedbacksController', () => {
         }
     }));
 
+    it('should instantiate the controller properly', function () {
+        let controller = createController();
+        expect(controller).not.toBeUndefined();
+    });
+
     it('should send request GET /feedbacks on serve', () => {
         $httpBackend.expectGET('/feedbacks').respond(200, [
             {name:'name'},

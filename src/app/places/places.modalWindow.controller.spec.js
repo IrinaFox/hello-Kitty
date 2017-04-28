@@ -1,7 +1,7 @@
-describe('CategoriesModalWindowController', () => {
+describe('ModalInstanceCtrlPlaces', () => {
     let $rootScope, $httpBackend, createController, modalInstance;
 
-    beforeEach(angular.mock.module('categories'));
+    beforeEach(angular.mock.module('places'));
 
     beforeEach(inject(($injector) => {
         let $controller = $injector.get('$controller');
@@ -17,10 +17,10 @@ describe('CategoriesModalWindowController', () => {
       };
 
       createController = function() {
-          return $controller('CategoriesModalWindowController', {
+          return $controller('ModalInstanceCtrlPlaces', {
             $scope: $rootScope,
             $uibModalInstance: modalInstance,
-            categoriesList: {}
+            currentPlace: {}
           });
       }
     }));
@@ -30,24 +30,10 @@ describe('CategoriesModalWindowController', () => {
         expect(controller).not.toBeUndefined();
     });
 
-    it('should send request PUT /categories/1 to the server', () => {
-        $httpBackend.expectPUT('/categories/1').respond();
-        let controller = createController();
-        controller.save({name: 'name', id: 1});
-        $httpBackend.flush();
-    });
-
-    it('should send request DELETE /categories/1 to the server', () => {
-        $httpBackend.expectDELETE('/categories/1').respond();
-        let controller = createController();
-        controller.destroy({name: 'name', id: 1});
-        $httpBackend.flush();
-    });
-
-    it('should close the modal with result "true" when accepted', function () {
+    it('should close the modal, when accepted', function () {
         let controller = createController();
         controller.ok();
-        expect(modalInstance.close).toHaveBeenCalledWith(true);
+        expect(modalInstance.close).toHaveBeenCalled();
     });
 
     it('should dismiss the modal with result "cancel"', function () {
