@@ -1,79 +1,90 @@
 [ 
   {
       "id": 0,
-      "categoryID": 0,
+      "categoryID": 1,
 	    "name": "1",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 2,
+	    "description": "-",
+      "participantIDs": [0, 1, 6]
 	},
   {
       "id": 1,
-      "categoryID": 0,
+      "categoryID": 1,
 	    "name": "2",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 5,
+	    "description": "-",
+      "participantIDs": [2, 3, 4]
 	},
   {
       "id": 2,
-      "categoryID": 0,
+      "categoryID": 1,
 	    "name": "3",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 3,
+	    "description": "-",
+      "participantIDs": [2, 4, 7]
 	},
   {
       "id": 3,
-      "categoryID": 0,
+      "categoryID": 1,
 	    "name": "4",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 1,
+	    "description": "-",
+      "participantIDs": [0, 3, 5]
 	},
   {
       "id": 4,
-      "categoryID": 1,
+      "categoryID": 2,
 	    "name": "5",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 4,
+	    "description": "-",
+      "participantIDs": [5, 6, 7]
 	},
   {
       "id": 5,
-      "categoryID": 1,
+      "categoryID": 2,
 	    "name": "6",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 2,
+	    "description": "-",
+      "participantIDs": [2, 1, 4]
 	},
   {
       "id": 6,
       "categoryID": 2,
 	    "name": "7",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 3,
+	    "description": "-",
+      "participantIDs": [5, 6, 7]
 	},
   {
       "id": 7,
-      "categoryID": 2,
+      "categoryID": 3,
 	    "name": "8",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 1,
+	    "description": "-",
+      "participantIDs": [2, 3, 4]
 	},
   {
       "id": 8,
-      "categoryID": 2,
+      "categoryID": 3,
 	    "name": "9",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 5,
+	    "description": "-",
+      "participantIDs": [0, 1, 2]
 	},
   {
       "id": 9,
-      "categoryID": 3,
+      "categoryID": 4,
 	    "name": "10",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 6,
+	    "description": "-",
+      "participantIDs": [0, 1, 7]
 	},
   {
       "id": 10,
-      "categoryID": 3,
+      "categoryID": 4,
 	    "name": "11",
-	    "place": "-",
-	    "description": "-"
+	    "placeID": 10,
+	    "description": "-",
+      "participantIDs": [2, 4, 6]
 	}
 ]

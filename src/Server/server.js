@@ -196,9 +196,13 @@ function start () {
         if (path === 'events') {
             if (request.method === 'GET') {
                 response.writeHead(200, {"Content-Type": "application/json"});
-                response.write(requestHandlers.getEvents(id));
+                response.write(requestHandlers.getEvents());
                 response.end();
-            }
+            } else if (request.method === 'DELETE') {
+                requestHandlers.removeEvent(id);
+                response.writeHead(200, {"Content-Type": "application/json"});
+                response.end();
+            } 
         }
     }
 
