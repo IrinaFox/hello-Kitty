@@ -1,0 +1,89 @@
+[   {
+	    "raiting": "111",
+	    "comment": "all right",
+	    "author":"Ksenya",
+	    "category": "Web UI",
+	    "eventID":"0",
+	    "id": "0"
+	},
+	{
+	    "raiting": "100",
+	    "comment": "it was nice",
+	    "author":"Polina",
+	    "category": "Python",
+	    "eventID":"5",
+	    "id": "1"
+	},
+	{
+	    "raiting": "121",
+	    "comment": "i liked it",
+	    "author":"Eugene",
+	    "category": "Database",
+	    "eventID":"6",
+	    "id": "2"
+	},
+	{
+	    "raiting": "211",
+	    "comment": "cool:)",
+	    "author":"Maxim",
+	    "category": "Manual Quality",
+	    "eventID":"10",
+	    "id": "3"
+	},
+	{
+	    "raiting": "711",
+	    "comment": "looks interesting",
+	    "author":"Alex",
+	    "category": "Database",
+	    "eventID":"7",
+	    "id": "4"
+	},
+	{
+	    "raiting": "311",
+	    "comment": "hard discuss",
+	    "author":"Vova",
+	    "category": "Database",
+	    "eventID":"8",
+	    "id": "5"
+	},
+	{
+	    "raiting": "1141",
+	    "comment": "good lecturer",
+	    "author":"Sveta",
+	    "category": "Web UI",
+	    "eventID":"1",
+	    "id": "6"
+	},
+	{
+	   "raiting": "1411",
+	    "comment": "what else?",
+	    "author":"Ira",
+	    "category": "Manual Quality",
+	    "eventID":"9",
+	    "id": "7"
+	},
+	{
+	    "raiting": "1711",
+	    "comment": "Web UI - my love♥",
+	    "author":"Lena",
+	    "category": "Web UI",
+	    "eventID":"2",
+	    "id": "8"
+	},
+	{
+	    "raiting": "11",
+	    "comment": "like a snake",
+	    "author":"Dima",
+	    "category": "Python",
+	    "eventID":"4",
+	    "id": "9"
+	},
+	{
+	    "raiting": "114545",
+	    "comment": "actually it's good report",
+	    "author":"Renny",
+	    "category": "Manual Quality",
+	    "eventID":"10",
+	    "id": "10"
+	}
+]
