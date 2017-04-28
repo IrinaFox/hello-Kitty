@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form name = "addeditFedback" 
+    <form name = "addEditFeedback" 
          class = "form-horizontal" novalidate="">
 	    <div class = "form-group">
 		<label class = "col-sm-2 control-label">Raiting</label>
@@ -11,11 +11,11 @@
 		            ng-model = "modal.feedback.raiting"
 		            ng-pattern="/^[1-9]/" 
 		            ng-required="true">
-		    <p class="error" ng-show="addeditFedback.raiting.$error.required &amp;&amp; addeditFedback.raiting.$touched">
+		    <p class="error" ng-show="addEditFeedback.raiting.$error.required &amp;&amp; addEditFeedback.raiting.$touched">
                 You must fill out the feedback raiting.</p>
-                <p class="error" ng-show="addeditFedback.raiting.$error.pattern">
+                <p class="error" ng-show="addEditFeedback.raiting.$error.pattern">
                 Only positive.</p>
-                <p class="error" ng-show="addeditFedback.raiting.$error.max">
+                <p class="error" ng-show="addEditFeedback.raiting.$error.max">
                 The maximum value should be 9999.</p>
 	    </div>
 	    </div>
@@ -28,10 +28,10 @@
 		            ng-model = "modal.feedback.comment"
 		            ng-maxlength="256" 
 		            ng-required="true">
-		       <p class="error" ng-show="addeditFedback.comment.$error.required &amp;&amp; addeditFedback.comment.$touched">
+		       <p class="error" ng-show="addEditFeedback.comment.$error.required &amp;&amp; addEditFeedback.comment.$touched">
                 You should write your short feedback about ours event(please be 
 polite).</p>
-                <p class="error" ng-show="addeditFedback.comment.$error.maxlength">
+                <p class="error" ng-show="addEditFeedback.comment.$error.maxlength">
                 You have to use not more than 256 characters.</p>
 
 		    </div>
@@ -45,9 +45,9 @@ polite).</p>
 		            ng-model = "modal.feedback.author"
 		            ng-maxlength="64" 
 		            ng-required="true">
-		<p class="error" ng-show="addeditFedback.author.$error.required &amp;&amp; add-editFedback.author.$touched">
+		<p class="error" ng-show="addEditFeedback.author.$error.required &amp;&amp; addEditFeedback.author.$touched">
                 You must fill out this field.</p>
-                <p class="error" ng-show="addeditFedback.author.$error.maxlength">
+                <p class="error" ng-show="addEditFeedback.author.$error.maxlength">
                 You have to use not more then 64 characters.</p>
 		    </div>
 	    </div>
