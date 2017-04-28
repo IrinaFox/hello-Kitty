@@ -26,7 +26,7 @@ describe('ModalWindowCtrl', () => {
 
     it('should instantiate the controller properly', function () {
         let controller = createController();
-        expect(controller).not.toBeUndefined();
+        expect(controller).toBeDefined();
     });
 
     it('should close the modal, when accepted', function () {
