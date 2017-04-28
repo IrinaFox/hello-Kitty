@@ -6,7 +6,7 @@ import {routerPlaces} from './places.route';
 import {PlacesController} from './places.controller';
 import {ModalInstanceCtrlPlaces} from './places.modalInstance.controller';
 
-var places = angular.module('places', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr'])
+var places = angular.module('places', ['ui.router', 'ui.bootstrap'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .service('githubContributor', GithubContributorService)

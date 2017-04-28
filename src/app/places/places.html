@@ -1,10 +1,12 @@
-<div class="row places">
-    <div class = "col-sm-8">
+<div class="row tableAll">
+    <div class = "col-sm-12">
+        <button class = "btn btn-default add"
+            ng-click="places.openAddForm('md')">Add Place
+        </button>
         <table class = "table table-hover">
             <caption>All places</caption>
             <thead>
                 <tr>
-                    <th>№</th>
                     <th>Name</th>
                     <th>capacity seating</th>
                     <th>Adress</th>
@@ -17,21 +19,22 @@
             <tbody>
                 <tr class = "active"
                     ng-repeat = "place in places.currentPage | filter:query track by place.id">
-                    <td>{{$index + 1}}</td>
                     <td>{{place.name}}</td>
                     <td>{{place.capacity}}</td>
                     <td>{{place.adress}}</td>
                     <td>{{place.coords}}</td>
                     <td><img ng-src = "app/places/img/{{place.photo}}"></td>
                     <td>
-                        <button class = "btn btn-default"
-                            ng-click = "places.openEditForm('md', place)">Edit</button>
+                        <a class="btn btn-default btn-sm"
+                            ng-click = "places.openEditForm('md', place)">
+                            <i class = "glyphicon glyphicon-pencil"></i>
+                        </a>
                     </td>
                     <td>
                         <button type = "button"
                             ng-click = "places.removePlace(place.id)"
                             class = "btn btn-sm btn-danger">
-                                <i class="glyphicon glyphicon-remove-circle"></i>
+                                <i class="glyphicon glyphicon-trash"></i>
                         </button>
                     </td>
                 </tr>
@@ -39,8 +42,12 @@
         </table>
     </div>
 </div>
-
-<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="places.pageChanged()"></ul>
-
-<button class = "btn btn-info"
-    ng-click="places.openAddForm('md')">Add Place</button>
+<div class="row">
+    <div class="col-sm-12">
+        <ul uib-pagination 
+            total-items="totalItems" 
+            items-per-page="itemsPerPage" 
+            ng-model="currentPage" 
+            ng-change="places.pageChanged()"></ul>
+    </div>
+</div>

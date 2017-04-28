@@ -1,15 +1,26 @@
 describe('CategoriesController', () => {
-    let controller, scope;
+    let $rootScope, $httpBackend, createController;
 
     beforeEach(angular.mock.module('categories'));
 
-    beforeEach(inject(($controller, $rootScope) => {
-        scope = $rootScope.$new();
-        controller = $controller('CategoriesController', {$scope: scope});
+    beforeEach(inject(($injector) => {
+        $httpBackend = $injector.get('$httpBackend');
+        $rootScope = $injector.get('$rootScope');
+        let $controller = $injector.get('$controller');
+
+        createController = function() {
+            return $controller('CategoriesController', {$scope: $rootScope});
+        }
     }));
 
-    it('should load categories list from server', inject($http => {
-        $http.get('/categories');
-        expect(controller.categoriesList).toEqual(undefined);
-    }));
+    it('should instantiate the controller properly', function () {
+        let controller = createController();
+        expect(controller).toBeDefined();
+    });
+
+    it('should send request GET /categories on serve', () => {
+        $httpBackend.expectGET('/categories').respond();
+        let controller = createController();
+        $httpBackend.flush();
+    });
 });

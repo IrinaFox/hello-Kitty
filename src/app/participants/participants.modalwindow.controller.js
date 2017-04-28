@@ -6,10 +6,6 @@ export class ModalWindowCtrl {
 
     ok (participant) {
        
-       if (participant === undefined){
-          this.uibModalInstance.dismiss('cancel');
-       }
-
         this.uibModalInstance.close(participant);
     }
 

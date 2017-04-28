@@ -11,15 +11,15 @@ export class CategoriesModalWindowController {
 
     create () {
         if (this.scope.newCategory !== '') {
-            let newCategory = {name: this.scope.newCategory};
+              let newCategory = {name: this.scope.newCategory};
 
-            this.http.post('/categories', newCategory)
-                .then(() => {
-                    this.ok();
-                });
+              this.http.post('/categories', newCategory)
+                  .then(() => {
+                      this.ok();
+                  });
 
-            this.scope.newCategory = '';
-        }
+              this.scope.newCategory = '';
+          }
     }
 
     destroy (category) {
@@ -37,7 +37,7 @@ export class CategoriesModalWindowController {
     }
 
     ok () {
-        this.uibModalInstance.close();
+        this.uibModalInstance.close(true);
     }
 
     cancel () {

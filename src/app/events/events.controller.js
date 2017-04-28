@@ -80,4 +80,22 @@ export class EventsController {
           this.events.splice(index, 1);
         });
   }
+
+  openShowuibModal (eventId) {
+        let modals = this.uibModal.open({
+                templateUrl: 'app/event/event.html',
+                controller: 'ModalFormController',
+                controllerAs: 'modalForm',
+                resolve: {Event: () => event}
+            });
+
+            modals.result.then((Event) => {
+            let id = event.id;
+
+            this.http.get('/events/' + id, Event)
+            .then(() => {
+                    this.loadList(categoryID);
+                });
+            });
+        };
 }

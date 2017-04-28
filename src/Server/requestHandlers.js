@@ -118,20 +118,22 @@ function getFeedbacks () {
 
 function addFeedback (feedback) {
     var feedbacksJSON = JSON.parse(feedback);
-    feedbacksJSON.id = ++feedbacksLength;
+    feedbacksJSON.id = feedbacksLength++;
     feedbacks.push(feedbacksJSON);
     return JSON.stringify(feedbacksJSON);
 }
 
 function changeFeedback (id, data) {
     var newFeedback = JSON.parse(data),
-    feedbackId = findElement(feedbacks, id);
-    feedbacks.splice(newFeedback, 1, feedbackId);
+    feedbackElement = findElement(feedbacks, id),
+    feedbackIndex = feedbacks.indexOf(feedbackElement);
+    feedbacks.splice( feedbackIndex, 1, newFeedback);
 }
 
 function removeFeedback (id) {
-     var feedback = findElement(feedbacks, id);
-     feedbacks.splice(feedback, 1);
+     var feedback = findElement(feedbacks, id),
+     feedbackIndex = feedbacks.indexOf(feedback);
+     feedbacks.splice(feedbackIndex, 1);
 }
 
 function getEvents () {

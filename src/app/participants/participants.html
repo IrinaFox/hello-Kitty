@@ -1,23 +1,43 @@
-<div>
-    <table class="table table-hover table-bordered table-responsive">
+<div class="row tableAll">
+<div class="dropdown">
+    <div  class="btn-group" uib-dropdown is-open="status.isopen">
+      <button   id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Sort table<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li role="name" ><a href="" ng-click="participants.applySorting('name')">Name</a></li>
+        <li role="lastname"><a href="" ng-click="participants.applySorting('lastname')">Lastname</a></li>
+        <li role="company"><a href="" ng-click="participants.applySorting('company')">Company</a></li>
+        <li role="direction"><a href="" ng-click="participants.applySorting('direction')">Direction</a></li>
+      </ul>
+    </div>
+</div>
+     <button class="btn btn-default sortable add" ng-click="participants.newPerson()">Add person</button>
+    <div class = "col-sm-12">
+    <table class="table table-hover">
         <thead>
-                <td>Name</td>
-                <td>LastName</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th>№</th>
+                <th>Name</th>
+                <th>LastName</th>
+                <th>Company</th>
+                <th>Direction</th>
+                <th>Age</th>
+                <th>Edit</th>
+                <th>Delete</th>
         </thead>
         <tbody>
-            <tr ng-repeat="participant in participants.participantsList | filter:query">
+            <tr class = "active" ng-repeat="participant in participants.participantsList | filter:query | orderBy: participants.orderProp track by participant.id">
+                <td>{{$index+1}}</td>
                 <td>{{participant.name}}</td>
                 <td>{{participant.lastname}}</td>
-                <td><button class="btn-info" ng-click="participants.editPerson(participant)">Edit</button></td>
-                <td><button class="btn-danger" ng-click="participants.removePerson(participant.id)">Delete</button></td>
+                <td>{{participant.company}}</td>
+                <td>{{participant.direction}}</td>
+                <td>{{participant.age}}</td>
+                <td><a class="btn btn-default btn-sm" ng-click="participants.editPerson(participant)"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                <td><button class="btn btn-sm btn-danger" ng-click="participants.removePerson(participant.id)"><i class="glyphicon glyphicon-trash"></i></button></td>
             </tr>
         </tbody>
     </table>
-
-<button class="btn btn-info" ng-click="participants.newPerson()">Add person</button>
+    </div>
 </div>
-
 
