@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse row">
       <ul class="nav navbar-nav navbar-inverse col-sm-10">
         <li class="active">
-          <a ui-sref=".events('all')"
+          <a ui-sref=".events({category: '' })"
              class="navbar-brand">All</a>
         </li>
         <li ng-repeat="category in categories.categoriesList track by category.id">

@@ -136,6 +136,23 @@ function removeFeedback (id) {
      feedbacks.splice(feedbackIndex, 1);
 }
 
+function getEvents () {
+    return JSON.stringify(events);
+}
+
+function removeEvent (id) {
+    var index = findIndex(events, id);
+    events.splice(index, 1);
+}
+
+function findIndex (collection, id) {
+    for (let i = 0; i < collection.length; i++) {
+        if (i == id) {
+            return i;
+        }
+    }
+}
+
 function findElement (collection, id) {
     var element;
 
@@ -170,15 +187,6 @@ function findId (collection, id) {
   return findedItem;
 }
 
-function getEvents (categoryID) {
-    var eventsOfCategory = events;
-    if (categoryID !== 'all') {
-      categoryID = Number(categoryID);
-      eventsOfCategory = eventsOfCategory.filter(event => event.categoryID === categoryID);
-    }
-    return JSON.stringify(eventsOfCategory);
-}
-
 exports.getCategories = getCategories;
 exports.deleteCategory = deleteCategory;
 exports.addCategory = addCategory;
@@ -195,8 +203,9 @@ exports.addPerson = addPerson;
 exports.changeParticipant = changeParticipant;
 
 exports.getFeedbacks = getFeedbacks;
-
-exports.getEvents = getEvents;
 exports.removeFeedback = removeFeedback;
 exports.addFeedback = addFeedback;
 exports.changeFeedback = changeFeedback;
+
+exports.getEvents = getEvents;
+exports.removeEvent = removeEvent;

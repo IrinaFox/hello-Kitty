@@ -1,35 +1,37 @@
 <table class="table table-hover">
-  <tbody>
-    <caption>All events</caption>
+  <caption>All events</caption>
+  <thead>
     <tr>
       <th>Name</th>
       <th>Place</th>
       <th>Description</th>
       <th>Participants</th>
-      <th>Feedbacks</th>
       <th>edit</th>
       <th>remove</th>
       <th>show more</th>
     </tr>
+  </thead>
+  <tbody>
     <tr ng-repeat="event in events.events | filter:query track by event.id">
       <td>{{event.name}}</td>
-      <td>{{event.place}}</td>
+      <td>{{event.place.name}}</td>
       <td>{{event.description}}</td>
       <td>
-        <a ui-sref="participants({eventID: {{event.id}} })"
-           class="btn btn-info">Participants</a>
+        <ul>
+          <li ng-repeat="participant in event.participants track by participant.id">
+            {{participant.name}}
+          </li>
+        </ul>
       </td>
       <td>
-        <a ui-sref="feedbacks({eventID: {{event.id}} })"
-           class="btn btn-info">Feedbacks</a>
+        <button ng-click="events.openModalForm(event)"
+                class="btn btn-default">Edit</button>
       </td>
       <td>
-        <button ng-click="events.openModalForm( {{event}} )"
-                class="btn btn-default btn-lg">Edit</button>
-      </td>
-      <td>
-        <button ng-click="events.remove( {{event}} )
-                class="close">&times;</button>
+        <button ng-click="events.remove(event)"
+                class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-remove-circle"></i>
+        </button>
       </td>
 <td>
         <a ui-sref = "events.openShowuibModal(eventId)"
