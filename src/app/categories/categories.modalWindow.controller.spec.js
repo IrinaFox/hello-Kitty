@@ -27,7 +27,7 @@ describe('CategoriesModalWindowController', () => {
 
     it('should instantiate the controller properly', function () {
         let controller = createController();
-        expect(controller).not.toBeUndefined();
+        expect(controller).toBeDefined();
     });
 
     it('should send request PUT /categories/1 to the server', () => {

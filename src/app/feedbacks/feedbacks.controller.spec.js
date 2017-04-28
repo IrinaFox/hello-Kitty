@@ -15,7 +15,7 @@ describe('FeedbacksController', () => {
 
     it('should instantiate the controller properly', function () {
         let controller = createController();
-        expect(controller).not.toBeUndefined();
+        expect(controller).toBeDefined();
     });
 
     it('should send request GET /feedbacks on serve', () => {
