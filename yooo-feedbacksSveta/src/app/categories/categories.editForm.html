@@ -1,0 +1,30 @@
+<div class="modal-body">
+    <form action="" class="form-horizontal row">
+        <div class="form-group col-sm-10"
+             ng-repeat="category in $ctrl.categoriesList track by category.id">
+            <label class="col-sm-2 control-label">{{category.name}}</label>
+            <div class="col-sm-10">
+                <input ng-disabled="category.del"
+                       ng-model="category.name"
+                       type="text" class="form-control">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button ng-click="$ctrl.save(category)"
+                            ng-disabled="category.del"
+                            class="btn btn-default">Save
+                    </button>
+                    <button ng-click="$ctrl.destroy(category)"
+                            ng-disabled="category.del"
+                            aria-label="Delete">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+   <button class="btn btn-warning"
+            type="submit"
+            ng-click="$ctrl.ok()">Cancel</button>
+</div>
