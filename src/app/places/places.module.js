@@ -18,5 +18,3 @@ var places = angular.module('places', ['ui.router', 'ui.bootstrap'])
   .controller('ModalInstanceCtrlPlaces', ModalInstanceCtrlPlaces);
 
 export default places;
-
-

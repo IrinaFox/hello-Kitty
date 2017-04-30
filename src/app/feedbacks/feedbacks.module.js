@@ -10,6 +10,6 @@ var feedbacks = angular.module('feedbacks', ['ngAnimate', 'ngCookies', 'ngTouch'
   .config(FeedbacksRouter)
   .controller('FeedbacksController', FeedbacksController)
   .controller('ModalControllerFeedbacks', ModalControllerFeedbacks);
-  
+
 
 export default feedbacks;
